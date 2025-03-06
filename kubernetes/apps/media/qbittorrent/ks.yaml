@@ -13,6 +13,11 @@ spec:
     - ../../../../components/volsync
   interval: 1h
   path: ./kubernetes/apps/media/qbittorrent/app
+  postBuild:
+    substitute:
+      APP: *app
+      GATUS_SUBDOMAIN: qb
+      VOLSYNC_CAPACITY: 2Gi
   prune: true
   retryInterval: 2m
   sourceRef:
