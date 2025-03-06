@@ -25,6 +25,7 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    installCRDs: true
     serviceMonitor:
       enabled: true
       interval: 1m
