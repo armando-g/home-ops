@@ -10,3 +10,4 @@ resources:
   - ./k8s-gateway.yaml
   - ./metrics-server.yaml
   - ./rook-ceph.yaml
+  - ./backube.yaml
