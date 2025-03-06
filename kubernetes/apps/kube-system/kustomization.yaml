@@ -14,4 +14,4 @@ resources:
   - ./snapshot-controller/ks.yaml
   - ./external-secrets/ks.yaml
   - ./reflector/ks.yaml
-  - ./generic-device-plugin
+  - ./generic-device-plugin/ks.yaml
