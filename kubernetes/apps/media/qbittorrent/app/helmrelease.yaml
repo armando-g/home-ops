@@ -38,7 +38,7 @@ spec:
               CROSS_SEED_SLEEP_INTERVAL: 0
             envFrom:
               - secretRef:
-                  name: qbittorrent-secrets
+                  name: qbittorrent-secret
             probes:
               liveness:
                 enabled: true
