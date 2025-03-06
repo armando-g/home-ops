@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app radarr-1080p
+  name: &app sonarr-2160p
 spec:
   interval: 5m
   chartRef:
@@ -19,29 +19,24 @@ spec:
       retries: 3
   values:
     controllers:
-      radarr:
+      sonarr:
         annotations:
           reloader.stakater.com/auto: "true"
         type: deployment
         containers:
           app:
             image:
-              repository: ghcr.io/onedr0p/radarr
-              tag: 5.19.3@sha256:7218cd42b646bb773a2c683b95860c51103c3ca7e0b9171b4bc549b95ddc6896
+              repository: ghcr.io/onedr0p/sonarr
+              tag: 4.0.13@sha256:b2217e5c81155ba002e0497932c2de197b8f5c1ac9c9fff7210e9a6381caab41
               pullPolicy: IfNotPresent
             env:
               TZ: "America/Chicago"
-              RADARR__AUTH__METHOD: External
-              RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              RADARR__APP__INSTANCENAME: "Radarr (1080p)"
-              RADARR__SERVER__PORT: &port 80
+              SONARR__APP__INSTANCENAME: "Sonarr (2160p)"
+              SONARR__SERVER__PORT: &port 80
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
-            resources:
-              limits:
-                memory: 2Gi
         pod:
           securityContext:
             runAsUser: 1000
@@ -49,9 +44,11 @@ spec:
             fsGroup: 100
             fsGroupChangePolicy: "OnRootMismatch"
             runAsNonRoot: true
+            supplementalGroups:
+              - 65539
     service:
       app:
-        controller: radarr
+        controller: sonarr
         ports:
           http:
             port: *port
@@ -59,7 +56,7 @@ spec:
       app:
         className: internal
         hosts:
-          - host: "radarr.${SECRET_DOMAIN}"
+          - host: "sonarr-2160p.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
