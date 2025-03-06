@@ -1,0 +1,58 @@
+---
+# yaml-language-server: schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app radarr-1080p
+  namespace: &namespace media
+spec:
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  components:
+    - ../../../../components/volsync
+  interval: 1h
+  path: ./kubernetes/apps/media/radarr/1080p
+  postBuild:
+    substitute:
+      APP: *app
+      GATUS_SUBDOMAIN: radarr-1080p
+      VOLSYNC_CAPACITY: 2Gi
+  prune: true
+  retryInterval: 2m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: *namespace
+  timeout: 5m
+  wait: false
+---
+# yaml-language-server: schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app radarr-2160p
+  namespace: &namespace media
+spec:
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  components:
+    - ../../../../components/volsync
+  interval: 1h
+  path: ./kubernetes/apps/media/radarr/2160p
+  postBuild:
+    substitute:
+      APP: *app
+      GATUS_SUBDOMAIN: radarr-2160p
+      VOLSYNC_CAPACITY: 2Gi
+  prune: true
+  retryInterval: 2m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: *namespace
+  timeout: 5m
+  wait: false
