@@ -110,10 +110,7 @@ spec:
                   port: http
     persistence:
       config:
-        enabled: true
         existingClaim: *app
-        globalMounts:
-          - path: /config
       media:
         enabled: true
         type: custom
