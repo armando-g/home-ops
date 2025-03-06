@@ -11,3 +11,4 @@ resources:
   - ./sonarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./notifiarr/ks.yaml
+  - ./cross-seed/ks.yaml
