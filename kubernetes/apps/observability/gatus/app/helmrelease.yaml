@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app gatus
+  name: gatus
 spec:
   interval: 1h
   chartRef:
@@ -82,13 +82,13 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
     service:
       app:
-        controller: *app
+        controller: gatus
         ports:
           http:
             port: *port
     serviceMonitor:
       app:
-        serviceName: *app
+        serviceName: gatus
         endpoints:
           - port: http
     ingress:
@@ -101,7 +101,7 @@ spec:
             paths:
               - path: /
                 service:
-                  identifier: *app
+                  identifier: app
                   port: http
     serviceAccount:
       create: true
