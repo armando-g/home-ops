@@ -3,6 +3,9 @@ endpoints:
     group: internal
     url: 1.1.1.1
     interval: 1m
+    ui:
+      hide-hostname: true
+      hide-url: true
     dns:
       query-name: "${GATUS_SUBDOMAIN:=${APP}}.armando.sh"
       query-type: A
