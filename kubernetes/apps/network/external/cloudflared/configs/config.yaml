@@ -1,10 +1,10 @@
 ---
 originRequest:
-  originServerName: "external.${SECRET_DOMAIN}"
+  originServerName: "external.armando.sh"
 
 ingress:
-  - hostname: "${SECRET_DOMAIN}"
+  - hostname: "armando.sh"
     service: https://external-ingress-nginx-controller.network.svc.cluster.local:443
-  - hostname: "*.${SECRET_DOMAIN}"
+  - hostname: "*.armando.sh"
     service: https://external-ingress-nginx-controller.network.svc.cluster.local:443
   - service: http_status:404

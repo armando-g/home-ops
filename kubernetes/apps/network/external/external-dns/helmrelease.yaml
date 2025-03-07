@@ -45,7 +45,7 @@ spec:
     sources: ["crd", "ingress"]
     txtPrefix: k8s.
     txtOwnerId: default
-    domainFilters: ["${SECRET_DOMAIN}"]
+    domainFilters: ["armando.sh"]
     serviceMonitor:
       enabled: true
     podAnnotations:

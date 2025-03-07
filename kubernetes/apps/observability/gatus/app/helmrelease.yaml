@@ -98,9 +98,9 @@ spec:
       app:
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: "external.armando.sh"
         hosts:
-          - host: status.${SECRET_DOMAIN}
+          - host: status.armando.sh
             paths:
               - path: /
                 service:

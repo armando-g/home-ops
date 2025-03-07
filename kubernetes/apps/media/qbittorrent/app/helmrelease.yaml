@@ -102,7 +102,7 @@ spec:
         enabled: true
         className: internal
         hosts:
-          - host: &host "qb.${SECRET_DOMAIN}"
+          - host: &host "qb.armando.sh"
             paths:
               - path: /
                 service:

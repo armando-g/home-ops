@@ -29,14 +29,14 @@ spec:
       ingress:
         enabled: true
         ingressClassName: internal
-        hosts: ["alertmanager.${SECRET_DOMAIN}"]
+        hosts: ["alertmanager.armando.sh"]
         pathType: Prefix
       alertmanagerSpec:
         alertmanagerConfiguration:
           name: alertmanager
           global:
             resolveTimeout: 5m
-        externalUrl: https://alertmanager.${SECRET_DOMAIN}
+        externalUrl: https://alertmanager.armando.sh
         storage:
           volumeClaimTemplate:
             spec:
@@ -64,7 +64,7 @@ spec:
       ingress:
         enabled: true
         ingressClassName: internal
-        hosts: ["prometheus.${SECRET_DOMAIN}"]
+        hosts: ["prometheus.armando.sh"]
         pathType: Prefix
       prometheusSpec:
         podMonitorSelectorNilUsesHelmValues: false

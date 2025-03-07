@@ -53,7 +53,7 @@ spec:
       app:
         className: internal
         hosts:
-          - host: "prowlarr.${SECRET_DOMAIN}"
+          - host: "prowlarr.armando.sh"
             paths:
               - path: /
                 service:
