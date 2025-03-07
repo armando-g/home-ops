@@ -5,3 +5,5 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./helmrepository.yaml
+  - ./externalsecret.yaml
+  - ./alertmanagerconfig.yaml
