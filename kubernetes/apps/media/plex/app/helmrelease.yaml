@@ -36,7 +36,6 @@ spec:
               PLEX_CLAIM: claim-CvnCRbNqn3NzgoKB6sue
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               limits:
