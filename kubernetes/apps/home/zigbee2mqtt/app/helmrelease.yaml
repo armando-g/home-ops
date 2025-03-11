@@ -86,17 +86,16 @@ spec:
         ports:
           http:
             port: *port
-    route:
+    ingress:
       app:
-        hostnames: ["{{ .Release.Name }}.armando.sh"]
-        parentRefs:
-          - name: internal
-            namespace: kube-system
-            sectionName: https
-        rules:
-          - backendRefs:
-              - name: *app
-                port: *port
+        className: internal
+        hosts:
+          - host: "zigbee.armando.sh"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
     persistence:
       config:
         existingClaim: zigbee
