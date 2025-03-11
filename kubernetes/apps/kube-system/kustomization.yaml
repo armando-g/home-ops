@@ -17,3 +17,4 @@ resources:
   - ./generic-device-plugin/ks.yaml
   - ./intel-device-plugin-operator/ks.yaml
   - ./node-feature-discovery/ks.yaml
+  - ./descheduler/ks.yaml
