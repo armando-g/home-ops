@@ -64,8 +64,6 @@ spec:
                   periodSeconds: 10
             securityContext:
               privileged: true
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 10m
