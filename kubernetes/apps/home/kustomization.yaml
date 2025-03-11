@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: home
 components:
   - ../../components/common
+  - ../../components/repos/app-template
 resources:
   - ./emqx/ks.yaml
   - ./home-assistant/ks.yaml
