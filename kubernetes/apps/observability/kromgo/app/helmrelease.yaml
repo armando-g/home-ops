@@ -75,7 +75,7 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.armando.sh"
         hosts:
-          - host: status.armando.sh
+          - host: kromgo.armando.sh
             paths:
               - path: /
                 service:
