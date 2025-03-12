@@ -69,17 +69,18 @@ spec:
             port: *port
           health:
             port: *healthPort
-    route:
+    ingress:
       app:
-        hostnames: ["{{ .Release.Name }}.armando.sh"]
-        parentRefs:
-          - name: external
-            namespace: kube-system
-            sectionName: https
-        rules:
-          - backendRefs:
-              - name: *app
-                port: *port
+        className: external
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "external.armando.sh"
+        hosts:
+          - host: status.armando.sh
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
     persistence:
       config-file:
         type: configMap
