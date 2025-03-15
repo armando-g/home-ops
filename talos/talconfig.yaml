@@ -33,12 +33,7 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "24:8a:07:fb:62:b1"
-        dhcp: false
-        addresses:
-          - "192.168.60.210/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.168.60.1"
+        dhcp: true
         mtu: 1500
         vip:
           ip: "192.168.60.2"
@@ -52,12 +47,7 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "f4:52:14:f8:50:61"
-        dhcp: false
-        addresses:
-          - "192.168.60.220/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.168.60.1"
+        dhcp: true
         mtu: 1500
         vip:
           ip: "192.168.60.2"
@@ -71,12 +61,7 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "ec:0d:9a:0a:ec:21"
-        dhcp: false
-        addresses:
-          - "192.168.60.230/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.168.60.1"
+        dhcp: true
         mtu: 1500
         vip:
           ip: "192.168.60.2"
@@ -90,12 +75,7 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "32:d8:d3:34:53:36"
-        dhcp: false
-        addresses:
-          - "192.168.60.240/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.168.60.1"
+        dhcp: true
         mtu: 1500
   - hostname: "k8s-05"
     ipAddress: "192.168.60.250"
@@ -107,16 +87,13 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "82:2a:03:56:32:77"
-        dhcp: false
-        addresses:
-          - "192.168.60.250/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.168.60.1"
+        dhcp: true
         mtu: 1500
 
 # Global patches
 patches:
+  - "@./patches/global/machine-extrakernelargs.yaml"
+  - "@./patches/global/machine-features.yaml"
   - "@./patches/global/machine-files.yaml"
   - "@./patches/global/machine-kubelet.yaml"
   - "@./patches/global/machine-network.yaml"
@@ -129,4 +106,4 @@ controlPlane:
   patches:
     - "@./patches/controller/admission-controller-patch.yaml"
     - "@./patches/controller/cluster.yaml"
-
+    - "@./patches/global/machine-features.yaml"
