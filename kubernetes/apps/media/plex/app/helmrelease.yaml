@@ -104,7 +104,7 @@ spec:
       media:
         type: nfs
         server: 192.168.20.5
-        path: /export/media
+        path: /mnt/user/media
         globalMounts:
           - path: /media
             readOnly: true
