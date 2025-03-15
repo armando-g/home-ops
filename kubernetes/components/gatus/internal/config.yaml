@@ -1,13 +1,10 @@
 endpoints:
   - name: "${APP}"
     group: internal
-    url: 1.1.1.1
+    url: "${GATUS_SUBDOMAIN:=${APP}}.armando.sh"
     interval: 1m
     ui:
       hide-hostname: true
       hide-url: true
-    dns:
-      query-name: "${GATUS_SUBDOMAIN:=${APP}}.armando.sh"
-      query-type: A
     conditions:
-      - "len([BODY]) == 0"
+      - "[STATUS] == ${GATUS_STATUS:-200}"
