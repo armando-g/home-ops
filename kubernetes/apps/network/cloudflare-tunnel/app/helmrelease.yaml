@@ -30,16 +30,18 @@ spec:
               tag: 2025.2.1
             env:
               NO_AUTOUPDATE: true
+              TUNNEL_CRED_FILE: /etc/cloudflared/creds/credentials.json
               TUNNEL_METRICS: 0.0.0.0:8080
               TUNNEL_ORIGIN_ENABLE_HTTP2: true
               TUNNEL_TRANSPORT_PROTOCOL: quic
               TUNNEL_POST_QUANTUM: true
-            envFrom:
-              - secretRef:
-                  name: cloudflare-tunnel-secret
+              TUNNEL_ID: "77235f71-4640-4d2d-b772-f04799949bab"
             args:
               - tunnel
+              - --config
+              - /etc/cloudflared/config/config.yaml
               - run
+              - "$(TUNNEL_ID)"
             probes:
               liveness: &probes
                 enabled: true
@@ -84,10 +86,17 @@ spec:
             interval: 1m
             scrapeTimeout: 10s
     persistence:
-      config-file:
+      config:
         type: configMap
         name: cloudflare-tunnel-configmap
         globalMounts:
-          - path: /etc/cloudflared/config.yaml
+          - path: /etc/cloudflared/config/config.yaml
             subPath: config.yaml
+            readOnly: true
+      creds:
+        type: secret
+        name: cloudflare-tunnel-secret
+        globalMounts:
+          - path: /etc/cloudflared/creds/credentials.json
+            subPath: credentials.json
             readOnly: true
