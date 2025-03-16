@@ -231,10 +231,18 @@ spec:
       - vonage-status-panel
     serviceMonitor:
       enabled: true
-    ingress:
-      enabled: true
-      ingressClassName: internal
-      hosts: ["grafana.armando.sh"]
+    route:
+      app:
+        hostnames:
+          - "{{ .Release.Name }}.armando.sh"
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: https
+        rules:
+          - backendRefs:
+              - name: *app
+                port: *port
     persistence:
       enabled: false
     testFramework:

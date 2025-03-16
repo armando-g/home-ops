@@ -56,18 +56,18 @@ spec:
         ports:
           http:
             port: &port 8123
-    ingress:
+    route:
       app:
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "external.armando.sh"
-        className: external
-        hosts:
-          - host: "hass.armando.sh"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+        hostnames:
+          - "hass.armando.sh"
+        parentRefs:
+          - name: external
+            namespace: kube-system
+            sectionName: https
+        rules:
+          - backendRefs:
+              - name: *app
+                port: *port
     persistence:
       config:
         existingClaim: home-assistant
