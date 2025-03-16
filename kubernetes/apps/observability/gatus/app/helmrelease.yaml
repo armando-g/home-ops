@@ -80,9 +80,6 @@ spec:
         runAsGroup: 100
         fsGroup: 100
         fsGroupChangePolicy: OnRootMismatch
-      dnsConfig:
-        options:
-          - { name: ndots, value: "1" }
     service:
       app:
         controller: gatus
