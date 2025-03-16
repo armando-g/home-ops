@@ -27,18 +27,6 @@ spec:
     monitoring:
       enabled: true
       createPrometheusRules: true
-    route:
-      app:
-        hostnames:
-          - "rook.armando.sh"
-        parentRefs:
-          - name: internal
-            namespace: kube-system
-            sectionName: https
-        rules:
-          - backendRefs:
-              - name: *app
-                port: *port
     toolbox:
       enabled: true
     cephClusterSpec:
