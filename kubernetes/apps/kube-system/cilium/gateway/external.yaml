@@ -35,4 +35,3 @@ spec:
         certificateRefs:
           - kind: Secret
             name: armando-sh-production-tls
-            namespace: cert-manager
