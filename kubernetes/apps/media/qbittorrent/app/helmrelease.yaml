@@ -100,6 +100,7 @@ spec:
     route:
       app:
         hostnames:
+          - "{{ .Release.Name }}.armando.sh"
           - "qb.armando.sh"
         parentRefs:
           - name: internal
