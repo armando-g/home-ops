@@ -5,3 +5,8 @@ machine:
     nodeIP:
       validSubnets:
         - 192.168.60.0/24
+    extraMounts:
+      - destination: /var/mnt/extra
+        type: bind
+        source: /var/mnt/extra
+        options: ["bind", "rshared", "rw"]
