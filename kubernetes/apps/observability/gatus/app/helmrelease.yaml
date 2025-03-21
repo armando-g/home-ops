@@ -94,7 +94,6 @@ spec:
     route:
       app:
         hostnames:
-          - "{{ .Release.Name }}.armando.sh"
           - status.armando.sh
         parentRefs:
           - name: external
