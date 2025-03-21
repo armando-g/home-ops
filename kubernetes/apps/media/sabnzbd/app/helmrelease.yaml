@@ -76,7 +76,6 @@ spec:
     route:
       app:
         hostnames:
-          - "{{ .Release.Name }}.armando.sh"
           - sab.armando.sh
         parentRefs:
           - name: internal
