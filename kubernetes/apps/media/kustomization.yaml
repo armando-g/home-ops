@@ -16,3 +16,4 @@ resources:
   - ./plex/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./lidarr/ks.yaml
+  - ./profilarr/ks.yaml
