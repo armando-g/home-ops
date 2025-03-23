@@ -232,17 +232,14 @@ spec:
     serviceMonitor:
       enabled: true
     route:
-      app:
+      main:
+        enabled: true
         hostnames:
           - "{{ .Release.Name }}.armando.sh"
         parentRefs:
           - name: internal
             namespace: kube-system
             sectionName: https
-        rules:
-          - backendRefs:
-              - name: grafana
-                port: 80
     persistence:
       enabled: false
     testFramework:
