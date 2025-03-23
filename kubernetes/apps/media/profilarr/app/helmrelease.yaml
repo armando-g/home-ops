@@ -19,7 +19,7 @@ spec:
       retries: 3
   values:
     controllers:
-     profilarr:
+      profilarr:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
@@ -45,7 +45,7 @@ spec:
         controller: profilarr
         ports:
           http:
-            port: *port
+            port: 6868
     route:
       app:
         hostnames:
@@ -57,7 +57,7 @@ spec:
         rules:
           - backendRefs:
               - name: *app
-                port: *port
+                port: 6868
     persistence:
       config:
         existingClaim: *app
