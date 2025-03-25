@@ -59,7 +59,11 @@ spec:
             fsGroupChangePolicy: "OnRootMismatch"
     persistence:
       config:
-        existingClaim: *app
+        type: emptyDir
+        globalMounts:
+          - path: /app/config
+          - path: /config
+
       config-file:
         type: configMap
         name: qbit-manage-configmap
