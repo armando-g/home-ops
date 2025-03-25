@@ -22,30 +22,40 @@ spec:
   values:
     controllers:
       qbit-manage:
-        pod:
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            fsGroup: 1000
-            fsGroupChangePolicy: "OnRootMismatch"
         containers:
           app:
             image:
               repository: ghcr.io/stuffanthings/qbit_manage
-              tag: latest@sha256:9872821ac7e00cc6e5237387406e8bc64c2520826ad4a3ca25b575ada0a55780
+              tag: 4.2.1@sha256:e9e7888df6f63fddc8d5326f7bd308d523c181ec28c67357f67167592c41b7b3
             env:
+              QBT_CONFIG: "/config/config.yaml"
               TZ: "America/Chicago"
+            resources:
+              requests:
+                cpu: 10m
+                memory: 128Mi
+              limits:
+                memory: 1Gi
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities:
-                drop:
-                  - ALL
+              capabilities: { drop: ["ALL"] }
             lifecycle:
               postStart:
                 exec:
                   command:
-                    ["/bin/sh", "-c", "cp /config/config.yaml /app/config.yml"]
+                    [
+                      "/bin/sh",
+                      "-c",
+                      "cp /secret/config.yaml /config/config.yaml",
+                    ]
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 100
+        fsGroup: 100
+        fsGroupChangePolicy: OnRootMismatch
     persistence:
       config:
         type: emptyDir
@@ -56,7 +66,7 @@ spec:
         type: configMap
         name: qbit-manage-configmap
         globalMounts:
-          - path: /config/config.yaml
+          - path: /secret/config.yaml
             subPath: config.yaml
             readOnly: false
       media:
