@@ -2,12 +2,12 @@ apiVersion: v1
 data:
   config.yaml: |
     commands:
-      dry_run: True
+      dry_run: False
       recheck: False
       cat_update: False
       tag_update: True
       rem_unregistered: False
-      tag_tracker_error: False
+      tag_tracker_error: True
       rem_orphaned: False
       tag_nohardlinks: True
       share_limits: False
