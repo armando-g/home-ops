@@ -68,7 +68,7 @@ spec:
         type: configMap
         name: qbit-manage-configmap
         globalMounts:
-          - path: /app/config/config.yaml
+          - path: /app/config.yml
             subPath: config.yaml
             readOnly: true
       media:
