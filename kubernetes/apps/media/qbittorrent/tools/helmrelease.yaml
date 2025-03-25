@@ -53,15 +53,15 @@ spec:
                 cpu: 100m
               limits:
                 memory: 8Gi
+            lifecycle:
+              postStart:
+                exec:
+                  command:
+                    ["/bin/sh", "-c", "cp /config/config.yaml /app/config.yml"]
         pod:
           securityContext:
             fsGroup: 100
             fsGroupChangePolicy: "OnRootMismatch"
-        lifecycle:
-          postStart:
-            exec:
-              command:
-                ["/bin/sh", "-c", "cp /config/config.yaml /app/config.yml"]
     persistence:
       config:
         type: emptyDir
