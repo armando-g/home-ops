@@ -26,7 +26,7 @@ spec:
         containers:
           app:
             image:
-              repository: ghcr.io/hotio/lidarr
+              repository:
               tag: pr-plugins
               pullPolicy: IfNotPresent
             env:
@@ -37,7 +37,7 @@ spec:
               LIDARR__SERVER__PORT: &port 80
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              #readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               limits:
