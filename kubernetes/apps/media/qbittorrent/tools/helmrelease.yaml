@@ -57,18 +57,22 @@ spec:
           securityContext:
             fsGroup: 100
             fsGroupChangePolicy: "OnRootMismatch"
+        lifecycle:
+          postStart:
+            exec:
+              command:
+                ["/bin/sh", "-c", "cp /config/config.yaml /app/config.yml"]
     persistence:
       config:
         type: emptyDir
         globalMounts:
           - path: /app/config
           - path: /config
-
       config-file:
         type: configMap
         name: qbit-manage-configmap
         globalMounts:
-          - path: /app/config.yml
+          - path: /config/config.yaml
             subPath: config.yaml
             readOnly: false
       media:
