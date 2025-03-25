@@ -1,0 +1,84 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app qbit-manage
+spec:
+  interval: 5m
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    controllers:
+      qbit-manage:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/stuffanthings/qbit_manage
+              tag: latest@sha256:9872821ac7e00cc6e5237387406e8bc64c2520826ad4a3ca25b575ada0a55780
+            env:
+              TZ: "America/Chicago"
+            probes:
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+            securityContext:
+              runAsUser: 1000
+              runAsGroup: 100
+              runAsNonRoot: true
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                memory: 8Gi
+        pod:
+          securityContext:
+            fsGroup: 100
+            fsGroupChangePolicy: "OnRootMismatch"
+    service:
+      app:
+        controller: *app
+        ports:
+          http:
+            port: *port
+    persistence:
+      config:
+        existingClaim: *app
+      config-file:
+        type: configMap
+        name: qbit-manage-configmap
+        globalMounts:
+          - path: /config/config.yaml
+            subPath: config.yaml
+            readOnly: true
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "192.168.20.5"
+            path: "/mnt/user/media"
+        globalMounts:
+          - path: "/media"
