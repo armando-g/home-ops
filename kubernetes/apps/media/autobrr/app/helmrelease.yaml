@@ -21,7 +21,7 @@ spec:
       retries: 3
   values:
     controllers:
-      qbittorrent:
+      autobrr:
         containers:
           app:
             image:
