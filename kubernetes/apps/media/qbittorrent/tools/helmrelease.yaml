@@ -40,9 +40,6 @@ spec:
                   failureThreshold: 30
                   periodSeconds: 5
             securityContext:
-              runAsUser: 1000
-              runAsGroup: 100
-              runAsNonRoot: true
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities:
@@ -58,10 +55,6 @@ spec:
                 exec:
                   command:
                     ["/bin/sh", "-c", "cp /config/config.yaml /app/config.yml"]
-        pod:
-          securityContext:
-            fsGroup: 100
-            fsGroupChangePolicy: "OnRootMismatch"
     persistence:
       config:
         type: emptyDir
