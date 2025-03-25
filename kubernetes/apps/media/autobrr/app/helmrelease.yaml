@@ -85,3 +85,5 @@ spec:
         type: emptyDir
         globalMounts:
           - path: /config/log
+      tmp:
+        type: emptyDir
