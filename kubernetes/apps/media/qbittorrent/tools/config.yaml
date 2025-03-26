@@ -48,19 +48,20 @@ data:
       tv-2160p: "/media/downloads/torrents/complete/tv-2160p"
       music: "/media/downloads/torrents/complete/music"
       cross-seed: "/media/downloads/torrents/complete/cross-seed"
+      autobrr: "/media/downloads/torrents/complete/autobrr"
 
     tracker:
       fearnopeer:
         tag: FearNoPeer
         notifiarr: fearnopeer
       seedpool:
-        tag: seedpool
+        tag: SeedPool
         notifiar: seedpool
       scenetime:
         tag: SceneTime
         notifiarr: scenetime
       connecting|jumbohostpro:
-        tag: torrenting
+        tag: Torrenting
         notifiar: torrenting
       digitalcore:
         tag: DigitalCore
@@ -69,7 +70,7 @@ data:
         tag: TorrentLeech
         notifiarr: torrentleech
       other:
-        tag: other
+        tag: Other
 
     nohardlinks:
       movies-1080p:
