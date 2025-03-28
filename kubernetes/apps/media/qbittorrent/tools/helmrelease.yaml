@@ -40,9 +40,9 @@ spec:
               QBT_LOG_LEVEL: INFO
               QBT_RECHECK: true
               QBT_REM_ORPHANED: true
-              QBT_REM_UNREGISTERED: true
+              QBT_REM_UNREGISTERED: false
               QBT_RUN: true
-              QBT_SHARE_LIMITS: true
+              QBT_SHARE_LIMITS: false
               QBT_SKIP_CLEANUP: false
               QBT_SKIP_QB_VERSION_CHECK: true
               QBT_TAG_NOHARDLINKS: true
