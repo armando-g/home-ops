@@ -2,6 +2,7 @@ apiVersion: v1
 data:
   config.yaml: |
     commands:
+      run: True
       dry_run: False
       recheck: False
       cat_update: False
@@ -78,6 +79,7 @@ data:
       tv-1080p:
       tv-2160p:
       music:
+      cross-seed:
 
     recyclebin:
       enabled: false
