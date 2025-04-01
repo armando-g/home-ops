@@ -75,6 +75,9 @@ spec:
               FIREWALL_INPUT_PORTS: *port
               FIREWALL_OUTBOUND_SUBNETS: "10.69.0.0/16,10.96.0.0/16"
               SERVER_COUNTRIES: "United States"
+              BLOCK_MALICIOUS: off
+              BLOCK_SURVEILLANCE: off
+              BLOCK_ADS: off
             envFrom:
               - secretRef:
                   name: qbittorrent-secret
