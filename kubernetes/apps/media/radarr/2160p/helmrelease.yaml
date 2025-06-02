@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: ghcr.io/home-operations/radarr
-              tag: 5.22.0.9808@sha256:2bf6a9a5f30b28f09fa5601b23d095c64739ab0667753b95493a1bcdf194057d
+              tag: 5.26.0.10051@sha256:9a9bbec11725e485a2cd0fb1bd199ec0c358aa7b09c81ae712c2cfb9d555fde5
               pullPolicy: IfNotPresent
             env:
               TZ: "America/Chicago"
