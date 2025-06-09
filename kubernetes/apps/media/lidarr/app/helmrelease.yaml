@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: ghcr.io/home-operations/lidarr
-              tag: 2.11.0@sha256:1730e2a38b87375b814725021207a1678101fe874392bd1d7398993f6462ee19
+              tag: 2.12.4@sha256:2adf4c457faffbc587f7612f96a3f4d50795c5b2e343298aef7e67a91060bd6f
               pullPolicy: IfNotPresent
             env:
               TZ: "America/Chicago"
