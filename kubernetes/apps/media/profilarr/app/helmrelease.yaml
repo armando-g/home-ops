@@ -26,7 +26,7 @@ spec:
           app:
             image:
               repository: santiagosayshey/profilarr
-              tag: beta@sha256:64b720caf9ab73fb09248897531cf96fb5dda33d02046660a9c138544ab3a0f0
+              tag: beta@sha256:2409dcff2a07a34e30668256ee03438828cbbddf68fe360b9f7ae09212d2247d
             env:
               TZ: America/Chicago
             securityContext:
