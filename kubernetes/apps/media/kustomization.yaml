@@ -18,4 +18,3 @@ resources:
   - ./lidarr/ks.yaml
   - ./profilarr/ks.yaml
   - ./autobrr/ks.yaml
-  - ./deemix/ks.yaml
