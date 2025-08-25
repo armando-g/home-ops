@@ -1,6 +1,6 @@
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/ocirepository_v1beta2.json
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
   name: unifi-dns
@@ -10,7 +10,7 @@ spec:
     mediaType: application/vnd.cncf.helm.chart.content.v1.tar+gzip
     operation: copy
   ref:
-    tag: 1.15.2
+    tag: 1.18.0
   url: oci://ghcr.io/home-operations/charts-mirror/external-dns
   verify:
     provider: cosign
@@ -35,15 +35,12 @@ spec:
       retries: 3
   values:
     fullnameOverride: *app
-    image: # TODO: https://github.com/kubernetes-sigs/external-dns/pull/4943
-      repository: ghcr.io/buroa/external-dns
-      tag: 631b84da
     provider:
       name: webhook
       webhook:
         image:
           repository: ghcr.io/kashalls/external-dns-unifi-webhook
-          tag: v0.5.1@sha256:fc031337a83e3a7d5f3407c931373455fe6842e085b47e4bb1e73708cb054b06
+          tag: v0.6.2@sha256:cff737eb9d7d7d1e5aec49f510588e3172667dba3d4e7f544f0497b68c5f9c51
         env:
           - name: UNIFI_HOST
             value: https://192.168.1.1
