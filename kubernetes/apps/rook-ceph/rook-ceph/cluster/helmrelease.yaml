@@ -37,10 +37,6 @@ spec:
           osd_class_update_on_start: "false" # quote
       crashCollector:
         disable: false
-      csi:
-        readAffinity:
-          enabled: true
-          crushLocationLabels: null
       dashboard:
         enabled: true
         urlPrefix: /
