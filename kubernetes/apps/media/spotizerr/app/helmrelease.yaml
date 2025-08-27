@@ -31,7 +31,7 @@ spec:
               REDIS_PORT: "6379"
               REDIS_DB: "0"
               PUID: &uid 1000
-              PGID: &gid 100
+              PGID: &gid 1000
               SSO_ENABLED: false
               TZ: America/Chicago
             envFrom:
@@ -71,15 +71,19 @@ spec:
         controller: spotizerr
         ports:
           http:
-            port: 7171
+            port: &port 7171
     route:
       app:
         hostnames:
-          - "{{ .Release.Name }}.armando.sh"
+          - spotizerr.armando.sh
         parentRefs:
           - name: internal
             namespace: kube-system
             sectionName: https
+        rules:
+          - backendRefs:
+              - name: *app
+                port: *port
     persistence:
       data:
         existingClaim: *app
