@@ -68,6 +68,7 @@ spec:
     #     fsGroupChangePolicy: OnRootMismatch
     service:
       app:
+        controller: spotizerr
         ports:
           http:
             port: 7171
