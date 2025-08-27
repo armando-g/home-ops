@@ -7,10 +7,6 @@ metadata:
 spec:
   image: ghcr.io/dragonflydb/dragonfly:v1.32.0
   replicas: 3
-  authentication:
-    passwordFromSecret:
-      name: dragonfly-cluster-auth
-      key: password
   env:
     - name: MAX_MEMORY
       valueFrom:
@@ -23,6 +19,10 @@ spec:
     - --cluster_mode=emulated
     - --lock_on_hashtags
     - --dbfilename=snapshot
+  authentication:
+    passwordFromSecret:
+      name: dragonfly-secret
+      key: DRAGONFLY_PASSWORD
   topologySpreadConstraints:
     - maxSkew: 1
       topologyKey: kubernetes.io/hostname
