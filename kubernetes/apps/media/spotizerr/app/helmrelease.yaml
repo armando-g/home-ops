@@ -27,7 +27,7 @@ spec:
               repository: cooldockerizer93/spotizerr
               tag: 3.3.0@sha256:e5c5982a46a2a08439dbf2e6e67ec9a18e8a231944079bef817028b8f847a5d2
             env:
-              REDIS_HOST: "{{ .Release.Name }}-dragonfly"
+              REDIS_HOST: "dragonfly.database.svc.cluster.local"
               REDIS_PORT: "6379"
               REDIS_DB: "0"
               PUID: &uid 1000
