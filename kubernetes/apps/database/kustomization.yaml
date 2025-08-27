@@ -7,4 +7,4 @@ components:
   - ../../components/common
   - ../../components/repos/app-template
 resources:
-  - ./dragonfly/ks.yaml
+#  - ./dragonfly/ks.yaml
