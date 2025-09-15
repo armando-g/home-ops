@@ -29,15 +29,11 @@ spec:
               tag: beta@sha256:864486f403195b2ae3277335ac46457db587de983c5a1814c93bb384a0d3252c
             env:
               TZ: America/Chicago
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
         pod:
           securityContext:
             runAsUser: 1000
-            runAsGroup: 100
-            fsGroup: 100
+            runAsGroup: 1000
+            fsGroup: 1000
             fsGroupChangePolicy: "OnRootMismatch"
             runAsNonRoot: true
     service:
