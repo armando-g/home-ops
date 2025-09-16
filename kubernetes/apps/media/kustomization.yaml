@@ -18,4 +18,4 @@ resources:
   - ./lidarr/ks.yaml
   - ./profilarr/ks.yaml
   - ./autobrr/ks.yaml
-#  - ./spotizerr/ks.yaml
+  - ./jellyseerr/ks.yaml
