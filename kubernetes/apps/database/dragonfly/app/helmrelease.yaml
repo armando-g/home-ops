@@ -99,4 +99,4 @@ spec:
             interval: 1m
             scrapeTimeout: 10s
     serviceAccount:
-      dragonfly: {}
+      dragonfly-operator: {}
