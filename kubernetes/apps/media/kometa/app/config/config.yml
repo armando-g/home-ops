@@ -1,38 +1,34 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/kometa-team/kometa/nightly/json-schema/config-schema.json
 libraries:
-  movies-1080p:
-    library_name: Movies
-    radarr:
-      url: http://radarr-1080p.media.svc.cluster.local
-      token: <<RADARR_1080P_KEY>>
+  Movies:
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
-  movies-2160p:
-    library_name: Movies
-    radarr:
-      url: http://radarr-2160p.media.svc.cluster.local
-      token: <<RADARR_2160P_KEY>>
+  TV Shows:
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
-  tv-1080p:
-    library_name: TV Shows
-    sonarr:
-      url: http://sonarr-1080p.media.svc.cluster.local
-      token: <<SONARR_1080P_KEY>>
-    overlay_files:
-      - file: config/overlays/media_info.yml
-      - file: config/overlays/audience_rating.yml
-  tv-2160p:
-    library_name: TV Shows
-    sonarr:
-      url: http://sonarr-2160p.media.svc.cluster.local
-      token: <<SONARR_2160P_KEY>>
-    overlay_files:
-      - file: config/overlays/media_info.yml
-      - file: config/overlays/audience_rating.yml
+  # movies-1080p:
+  #   library_name: Movies
+  #   overlay_files:
+  #     - file: config/overlays/media_info.yml
+  #     - file: config/overlays/audience_rating.yml
+  # movies-2160p:
+  #   library_name: Movies
+  #   overlay_files:
+  #     - file: config/overlays/media_info.yml
+  #     - file: config/overlays/audience_rating.yml
+  # tv-1080p:
+  #   library_name: TV Shows
+  #   overlay_files:
+  #     - file: config/overlays/media_info.yml
+  #     - file: config/overlays/audience_rating.yml
+  # tv-2160p:
+  #   library_name: TV Shows
+  #   overlay_files:
+  #     - file: config/overlays/media_info.yml
+  #     - file: config/overlays/audience_rating.yml
 
 settings:
   run_order:
