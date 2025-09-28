@@ -1,9 +1,5 @@
+---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/kometa-team/kometa/nightly/json-schema/config-schema.json
-## Do not remove the above line
-## This file is a template remove the .template to use the file
-
-## Plex and TMDb are the two connections which are required for the script to run
-
 plex:
   url: http://plex.media.svc.cluster.local
   token: <<PLEX_TOKEN>>
@@ -12,7 +8,6 @@ plex:
   clean_bundles: false
   empty_trash: false
   optimize: false
-  verify_ssl: true
 tmdb:
   apikey: <<TMDB_API_KEY>>
   cache_expiration: 60
@@ -21,30 +16,66 @@ tmdb:
 
 libraries:
   movies-1080p:
+    library_name: Movies
     radarr:
       url: http://radarr-1080p.media.svc.cluster.local
       token: <<RADARR_1080P_KEY>>
+    plex:
+      url: http://plex.media.svc.cluster.local
+      token: <<PLEX_TOKEN>>
+      timeout: 60
+      db_cache: 40
+      clean_bundles: false
+      empty_trash: false
+      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
   movies-2160p:
+    library_name: Movies
     radarr:
       url: http://radarr-2160p.media.svc.cluster.local
       token: <<RADARR_2160P_KEY>>
+    plex:
+      url: http://plex.media.svc.cluster.local
+      token: <<PLEX_TOKEN>>
+      timeout: 60
+      db_cache: 40
+      clean_bundles: false
+      empty_trash: false
+      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
   tv-1080p:
-    radarr:
+    library_name: TV Shows
+    sonarr:
       url: http://sonarr-1080p.media.svc.cluster.local
       token: <<SONARR_1080P_KEY>>
+    plex:
+      url: http://plex.media.svc.cluster.local
+      token: <<PLEX_TOKEN>>
+      timeout: 60
+      db_cache: 40
+      clean_bundles: false
+      empty_trash: false
+      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
   tv-2160p:
-    radarr:
+    library_name: TV Shows
+    sonarr:
       url: http://sonarr-2160p.media.svc.cluster.local
       token: <<SONARR_2160P_KEY>>
+    plex:
+      url: http://plex.media.svc.cluster.local
+      token: <<PLEX_TOKEN>>
+      timeout: 60
+      db_cache: 40
+      clean_bundles: false
+      empty_trash: false
+      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
