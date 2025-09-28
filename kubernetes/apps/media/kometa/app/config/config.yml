@@ -7,7 +7,7 @@ libraries:
       - default: basic
       - default: franchise
       - default: resolution
-      - default: studio
+      - default: streaming
       - default: oscars
       - default: emmy
       - default: golden
@@ -20,7 +20,7 @@ libraries:
       - default: basic
       - default: franchise
       - default: resolution
-      - default: studio
+      - default: streaming
       - default: emmy
       - default: golden
     overlay_files:
