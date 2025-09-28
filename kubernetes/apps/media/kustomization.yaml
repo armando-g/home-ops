@@ -20,3 +20,4 @@ resources:
   - ./autobrr/ks.yaml
   - ./jellyseerr/ks.yaml
   - ./jellyfin/ks.yaml
+  - ./kometa/ks.yaml
