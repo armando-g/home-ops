@@ -58,6 +58,9 @@ spec:
               - -c
             args:
               - |
+                python3 kometa.py --run --read-only-config --run-libraries "movies-1080p";
+                python3 kometa.py --run --read-only-config --run-libraries "movies-2160p";
+                python3 kometa.py --run --read-only-config --run-libraries "tv-1080p";
                 python3 kometa.py --run --read-only-config --run-libraries "tv-2160p";
             env:
               TZ: *timeZone
