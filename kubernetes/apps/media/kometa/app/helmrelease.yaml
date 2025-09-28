@@ -100,7 +100,7 @@ spec:
             app:
               - path: /config/logs
                 subPath: logs
-      # git:
-      #   type: emptyDir # redeploy
-      #   globalMounts:
-      #     - path: /git
+      git:
+        type: emptyDir # redeploy
+        globalMounts:
+          - path: /git
