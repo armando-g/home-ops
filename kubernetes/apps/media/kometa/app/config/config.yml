@@ -9,26 +9,6 @@ libraries:
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
-  # movies-1080p:
-  #   library_name: Movies
-  #   overlay_files:
-  #     - file: config/overlays/media_info.yml
-  #     - file: config/overlays/audience_rating.yml
-  # movies-2160p:
-  #   library_name: Movies
-  #   overlay_files:
-  #     - file: config/overlays/media_info.yml
-  #     - file: config/overlays/audience_rating.yml
-  # tv-1080p:
-  #   library_name: TV Shows
-  #   overlay_files:
-  #     - file: config/overlays/media_info.yml
-  #     - file: config/overlays/audience_rating.yml
-  # tv-2160p:
-  #   library_name: TV Shows
-  #   overlay_files:
-  #     - file: config/overlays/media_info.yml
-  #     - file: config/overlays/audience_rating.yml
 
 settings:
   run_order:
@@ -38,7 +18,7 @@ settings:
   - overlays
   cache: true
   cache_expiration: 60
-  custom_repo: https://github.com/jmxd/Kometa/tree/main
+  custom_repo:
   asset_directory:
   - config/assets
   asset_folders: true
@@ -78,13 +58,14 @@ settings:
   overlay_artwork_quality: 90
 
 plex:
-  url: http://plex.media.svc.cluster.local:32400
+  url: https://plex.armando.sh:443
   token: <<PLEXTOKEN>>
   timeout: 60
   db_cache: 40
   clean_bundles: false
   empty_trash: false
   optimize: false
+  verify_ssl: true
 
 tmdb:
   apikey: <<TMDBAPIKEY>>
