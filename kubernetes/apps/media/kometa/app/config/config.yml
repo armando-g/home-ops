@@ -20,30 +20,30 @@ tmdb:
   region: US
 
 libraries:
-  # movies-1080p:
-  #   library_name: Movies
-  #   radarr:
-  #     url: http://radarr-1080p.media.svc.cluster.local
-  #     token: <<RADARR_1080P_KEY>>
-  #   overlay_files:
-  #     - file: config/overlays/media_info.yml
-  #     - file: config/overlays/audience_rating.yml
-  # movies-2160p:
-  #   library_name: Movies
-  #   radarr:
-  #     url: http://radarr-2160p.media.svc.cluster.local
-  #     token: <<RADARR_2160P_KEY>>
-  #   overlay_files:
-  #     - file: config/overlays/media_info.yml
-  #     - file: config/overlays/audience_rating.yml
-  # tv-1080p:
-  #   library_name: TV Shows
-  #   radarr:
-  #     url: http://sonarr-1080p.media.svc.cluster.local
-  #     token: <<SONARR_1080P_KEY>>
-  #   overlay_files:
-  #     - file: config/overlays/media_info.yml
-  #     - file: config/overlays/audience_rating.yml
+  movies-1080p:
+    library_name: Movies
+    radarr:
+      url: http://radarr-1080p.media.svc.cluster.local
+      token: <<RADARR_1080P_KEY>>
+    overlay_files:
+      - file: config/overlays/media_info.yml
+      - file: config/overlays/audience_rating.yml
+  movies-2160p:
+    library_name: Movies
+    radarr:
+      url: http://radarr-2160p.media.svc.cluster.local
+      token: <<RADARR_2160P_KEY>>
+    overlay_files:
+      - file: config/overlays/media_info.yml
+      - file: config/overlays/audience_rating.yml
+  tv-1080p:
+    library_name: TV Shows
+    radarr:
+      url: http://sonarr-1080p.media.svc.cluster.local
+      token: <<SONARR_1080P_KEY>>
+    overlay_files:
+      - file: config/overlays/media_info.yml
+      - file: config/overlays/audience_rating.yml
   tv-2160p:
     library_name: TV Shows
     radarr:
