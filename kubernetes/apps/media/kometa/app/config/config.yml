@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/kometa-team/kometa/nightly/json-schema/config-schema.json
 plex:
-  url: http://plex.media.svc.cluster.local
+  url: http://plex.media.svc.cluster.local:32400
   token: <<PLEX_TOKEN>>
   timeout: 60
   db_cache: 40
@@ -20,14 +20,6 @@ libraries:
     radarr:
       url: http://radarr-1080p.media.svc.cluster.local
       token: <<RADARR_1080P_KEY>>
-    plex:
-      url: http://plex.media.svc.cluster.local
-      token: <<PLEX_TOKEN>>
-      timeout: 60
-      db_cache: 40
-      clean_bundles: false
-      empty_trash: false
-      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
@@ -36,14 +28,6 @@ libraries:
     radarr:
       url: http://radarr-2160p.media.svc.cluster.local
       token: <<RADARR_2160P_KEY>>
-    plex:
-      url: http://plex.media.svc.cluster.local
-      token: <<PLEX_TOKEN>>
-      timeout: 60
-      db_cache: 40
-      clean_bundles: false
-      empty_trash: false
-      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
@@ -52,14 +36,6 @@ libraries:
     sonarr:
       url: http://sonarr-1080p.media.svc.cluster.local
       token: <<SONARR_1080P_KEY>>
-    plex:
-      url: http://plex.media.svc.cluster.local
-      token: <<PLEX_TOKEN>>
-      timeout: 60
-      db_cache: 40
-      clean_bundles: false
-      empty_trash: false
-      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
@@ -68,14 +44,6 @@ libraries:
     sonarr:
       url: http://sonarr-2160p.media.svc.cluster.local
       token: <<SONARR_2160P_KEY>>
-    plex:
-      url: http://plex.media.svc.cluster.local
-      token: <<PLEX_TOKEN>>
-      timeout: 60
-      db_cache: 40
-      clean_bundles: false
-      empty_trash: false
-      optimize: false
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
