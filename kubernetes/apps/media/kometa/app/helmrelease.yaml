@@ -58,7 +58,7 @@ spec:
               - -c
             args:
               - |
-                python3 kometa.py --read-only-config --run;
+                python3 kometa.py --run --read-only-config --run-libraries "tv-2160p";
             env:
               TZ: *timeZone
             envFrom:
