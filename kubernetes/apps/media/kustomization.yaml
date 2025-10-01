@@ -21,3 +21,4 @@ resources:
   - ./jellyseerr/ks.yaml
   - ./kometa/ks.yaml
   - ./tqm/ks.yaml
+  - ./bazarr/ks.yaml
