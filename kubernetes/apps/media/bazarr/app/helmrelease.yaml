@@ -57,8 +57,8 @@ spec:
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
-        runAsGroup: 100
-        fsGroup: 100
+        runAsGroup: 1000
+        fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
         supplementalGroups: [44]
     service:
@@ -87,7 +87,6 @@ spec:
         path: /mnt/user/media
         globalMounts:
           - path: /media
-            readOnly: true
       tmpfs:
         type: emptyDir
         advancedMounts:
