@@ -6,7 +6,7 @@ clients:
     filter: default
     create_tags_upfront: false # Only sets tags that matches torrents, prevents empty tags
     type: qbittorrent
-    url: https://qqbittorrent.media.svc.cluster.local
+    url: https://qbittorrent.media.svc.cluster.local
 filters:
   default:
     MapHardlinksFor:
