@@ -8,7 +8,8 @@ spec:
   interval: 1h
   chartRef:
     kind: OCIRepository
-    name: tqm
+    name: app-template
+    namespace: flux-system
   dependsOn:
     - name: qbittorrent
       namespace: media
