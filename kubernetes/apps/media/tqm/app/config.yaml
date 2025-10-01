@@ -6,7 +6,7 @@ clients:
     filter: default
     create_tags_upfront: false # Only sets tags that matches torrents, prevents empty tags
     type: qbittorrent
-    url: https://qbittorrent.media.svc.cluster.local
+    url: http://qbittorrent.media.svc.cluster.local
 filters:
   default:
     MapHardlinksFor:
@@ -14,6 +14,9 @@ filters:
     # if true, data will be deleted from disk when removing torrents (default: true)
     #DeleteData: false
     ignore:
+      - IsTrackerDown()
+      - Downloaded == false && !IsUnregistered()
+      - SeedingHours < 26 && !IsUnregistered()
 
     remove:
 
@@ -22,12 +25,9 @@ filters:
     label:
 
     tag:
-      - name: unregistered
-        update:
-          - IsUnregistered()
-      - name: noHL
-        update:
-          - HardlinkedOutsideClient == false
+      - { name: tracker-down,  update: ['IsTrackerDown()'] }
+      - { name: unregistered,  update: ['IsUnregistered()'] }
+      - { name: noHL,    update: ['HardlinkedOutsideClient == false && Label in ["sonarr", "radarr"]'] }
       - { name: activity:1d,   update: ['LastActivityDays < 7'] }
       - { name: activity:7d,   update: ['LastActivityDays >= 7 && LastActivityDays < 14'] }
       - { name: activity:14d,  update: ['LastActivityDays >= 14 && LastActivityDays < 30'] }
