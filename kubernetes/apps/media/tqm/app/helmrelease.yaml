@@ -41,6 +41,12 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: {drop: ["ALL"]}
+        containers:
+          clean:
+            <<: *container
+            args:
+              - clean
+              - qbt
         pod:
           restartPolicy: Never
     defaultPodOptions:
