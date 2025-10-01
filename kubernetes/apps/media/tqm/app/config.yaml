@@ -27,7 +27,7 @@ filters:
     tag:
       - { name: tracker-down,  update: ['IsTrackerDown()'] }
       - { name: unregistered,  update: ['IsUnregistered()'] }
-      - { name: noHL,    update: ['HardlinkedOutsideClient == false && Label in ["sonarr", "radarr"]'] }
+      - { name: noHL,          update: ['HardlinkedOutsideClient'] }
       - { name: activity:1d,   update: ['LastActivityDays < 7'] }
       - { name: activity:7d,   update: ['LastActivityDays >= 7 && LastActivityDays < 14'] }
       - { name: activity:14d,  update: ['LastActivityDays >= 14 && LastActivityDays < 30'] }
