@@ -9,6 +9,8 @@ clients:
     url: https://qb.armando.sh
 filters:
   default:
+    MapHardlinksFor:
+      - clean
     # if true, data will be deleted from disk when removing torrents (default: true)
     #DeleteData: false
     ignore:
