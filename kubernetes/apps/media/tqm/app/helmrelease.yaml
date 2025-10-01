@@ -31,7 +31,7 @@ spec:
               tag: 1.17.0@sha256:05b62239063ad1e884f2254532e3dc9b60cff08870112dca244af328d761be0d
             args:
               - retag
-              - qb
+              - qbt
             resources:
               requests:
                 cpu: 10m
@@ -41,12 +41,6 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: {drop: ["ALL"]}
-        containers:
-          clean:
-            <<: *container
-            args:
-              - clean
-              - qbt
         pod:
           restartPolicy: Never
     defaultPodOptions:
