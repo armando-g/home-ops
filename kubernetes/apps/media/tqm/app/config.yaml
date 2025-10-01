@@ -1,0 +1,32 @@
+clients:
+  qbt:
+    download_path: /media/downloads/torrents/complete
+    # free_space_path is not needed for qBittorrent as it checks globally via API
+    enabled: true
+    filter: default
+    create_tags_upfront: false # Only sets tags that matches torrents, prevents empty tags
+    type: qbittorrent
+    url: https://qb.armando.sh
+notifications:
+  detailed: true
+  skip_empty_run: false
+  service:
+    discord:
+      webhook_url: https://discord.com/api/webhooks/1422782736187396117/ZZmHbjaUV0tGOvbD4Vv-hLeZ6a8rHKUCQZYOY3VDuFo9cKZ3eE9A99GkmG_7nuQG_k9_
+filters:
+  default:
+    # if true, data will be deleted from disk when removing torrents (default: true)
+    #DeleteData: false
+    ignore:
+
+    remove:
+
+    pause:
+
+    label:
+
+    tag:
+      - name: unregistered
+        update:
+          - IsUnregistered()
+    orphan:
