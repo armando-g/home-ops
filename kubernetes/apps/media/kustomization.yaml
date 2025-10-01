@@ -22,3 +22,4 @@ resources:
   - ./kometa/ks.yaml
   - ./tqm/ks.yaml
   - ./bazarr/ks.yaml
+  - ./tautulli/ks.yaml
