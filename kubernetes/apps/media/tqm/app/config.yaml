@@ -17,9 +17,7 @@ filters:
       - IsTrackerDown()
       - Downloaded == false && !IsUnregistered()
       - SeedingHours < 26 && !IsUnregistered()
-
-    remove:
-
+      - HardlinkedOutsideClient == true && !isUnregistered()
     tag:
       - { name: tracker-down,  update: ['IsTrackerDown()'] }
       - { name: unregistered,  update: ['IsUnregistered()'] }
