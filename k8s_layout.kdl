@@ -1,0 +1,41 @@
+layout {
+  //tab name="nvim" {
+  //  pane size=1 borderless=true {
+  //      plugin location="zellij:tab-bar"
+  //  }
+  //  pane size="80%" command="nvim" args="."
+  //  pane split_direction="vertical" {
+  //      pane
+  //      pane
+  //  }
+  //}
+
+  tab name="lazygit" {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane command="lazygit"
+  }
+
+  tab name="k9s" {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" {
+      pane command="k9s" {
+        args "-A" "-c nodes"
+      }
+      pane command="k9s" {
+        args "-A" "-c events"
+      }
+    }
+    pane split_direction="vertical" {
+      pane command="k9s" {
+        args "-A" "-c deployments"
+      }
+      pane command="k9s" {
+        args "-A" "-c jobs"
+      }
+    }
+  }
+}
