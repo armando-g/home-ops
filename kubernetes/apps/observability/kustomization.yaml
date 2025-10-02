@@ -9,8 +9,8 @@ components:
 resources:
   - ./gatus/ks.yaml
   - ./grafana/ks.yaml
-  - ./kube-prometheus-stack/ks.yaml
-  - ./unpoller/ks.yaml
-  - ./promtail/ks.yaml
-  - ./loki/ks.yaml
   - ./kromgo/ks.yaml
+  - ./kube-prometheus-stack/ks.yaml
+  - ./loki/ks.yaml
+  - ./promtail/ks.yaml
+  - ./unpoller/ks.yaml
