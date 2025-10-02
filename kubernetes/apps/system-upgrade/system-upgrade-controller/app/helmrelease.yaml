@@ -47,7 +47,7 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000
+        runAsUser: 1001
         runAsGroup: 100
     serviceAccount:
       system-upgrade-controller: {}

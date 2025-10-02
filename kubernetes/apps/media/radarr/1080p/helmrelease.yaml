@@ -44,7 +44,7 @@ spec:
                 memory: 2Gi
         pod:
           securityContext:
-            runAsUser: 1000
+            runAsUser: 1001
             runAsGroup: 100
             fsGroup: 100
             fsGroupChangePolicy: "OnRootMismatch"

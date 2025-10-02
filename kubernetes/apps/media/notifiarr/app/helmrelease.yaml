@@ -45,7 +45,7 @@ spec:
                   failureThreshold: 30
                   periodSeconds: 5
             securityContext:
-              runAsUser: 1000
+              runAsUser: 1001
               runAsGroup: 100
               runAsNonRoot: true
               allowPrivilegeEscalation: false
@@ -62,7 +62,7 @@ spec:
       hostname: notifiarr-talos
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000
+        runAsUser: 1001
         runAsGroup: 100
         fsGroup: 100
         fsGroupChangePolicy: OnRootMismatch
