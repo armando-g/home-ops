@@ -2,7 +2,9 @@ machine:
   install:
     extraKernelArgs:
       - apparmor=0
+      - -init_on_alloc
       - init_on_alloc=0
+      - -init_on_free
       - init_on_free=0
       - mitigations=off
       - module_blacklist=e1000e
