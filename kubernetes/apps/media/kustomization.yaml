@@ -7,19 +7,18 @@ components:
   - ../../components/common
   - ../../components/repos/app-template
 resources:
-  - ./qbittorrent/ks.yaml
-  - ./radarr/ks.yaml
-  - ./sonarr/ks.yaml
-  - ./prowlarr/ks.yaml
-  - ./notifiarr/ks.yaml
-  - ./cross-seed/ks.yaml
-  - ./plex/ks.yaml
-  - ./sabnzbd/ks.yaml
-  - ./lidarr/ks.yaml
-  - ./profilarr/ks.yaml
   - ./autobrr/ks.yaml
+  - ./bazarr/ks.yaml
+  - ./cross-seed/ks.yaml
   - ./jellyseerr/ks.yaml
   - ./kometa/ks.yaml
-  - ./tqm/ks.yaml
-  - ./bazarr/ks.yaml
+  - ./notifiarr/ks.yaml
+  - ./plex/ks.yaml
+  - ./profilarr/ks.yaml
+  - ./prowlarr/ks.yaml
+  - ./qbittorrent/ks.yaml
+  - ./radarr/ks.yaml
+  - ./sabnzbd/ks.yaml
+  - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml
+  - ./tqm/ks.yaml
