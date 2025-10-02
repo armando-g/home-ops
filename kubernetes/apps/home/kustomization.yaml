@@ -7,6 +7,6 @@ components:
   - ../../components/common
   - ../../components/repos/app-template
 resources:
-  - ./mosquitto/ks.yaml
   - ./home-assistant/ks.yaml
+  - ./mosquitto/ks.yaml
   - ./zigbee2mqtt/ks.yaml
