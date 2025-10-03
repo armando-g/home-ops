@@ -16,13 +16,10 @@ libraries:
       - file: config/overlays/audience_rating.yml
   TV Shows:
     collection_files:
-      - default: imdb
       - default: basic
       - default: franchise
       - default: resolution
       - default: streaming
-      - default: emmy
-      - default: golden
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
