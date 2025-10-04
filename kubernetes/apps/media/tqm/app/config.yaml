@@ -1,26 +1,25 @@
 clients:
   qbt:
     download_path: /media/downloads/torrents/complete
-    # free_space_path is not needed for qBittorrent as it checks globally via API
     enabled: true
     filter: default
-    create_tags_upfront: false # Only sets tags that matches torrents, prevents empty tags
     type: qbittorrent
     url: http://qbittorrent.media.svc.cluster.local
 filters:
   default:
     MapHardlinksFor:
       - retag
-    # if true, data will be deleted from disk when removing torrents (default: true)
-    #DeleteData: false
     ignore:
       - IsTrackerDown()
       - Downloaded == false && !IsUnregistered()
       - SeedingHours < 26 && !IsUnregistered()
+    remove:
+      - IsUnregistered()
+      - HasAnyTag("noHL") && SeedingDays > 7
+      - HasAllTags("noHL", "cross-seed")
     tag:
       - { name: tracker-down,  update: ['IsTrackerDown()'] }
-      - { name: unregistered,  update: ['IsUnregistered()'] }
-      - { name: noHL,          update: ['HardlinkedOutsideClient == false'] }
+      - { name: noHL,          update: ['HardlinkedOutsideClient == false && Label in ["movies-1080p", "movies-2160p", "tv-1080p", "tv-2160p"]'] }
       - { name: activity:1d,   update: ['LastActivityDays < 7'] }
       - { name: activity:7d,   update: ['LastActivityDays >= 7 && LastActivityDays < 14'] }
       - { name: activity:14d,  update: ['LastActivityDays >= 14 && LastActivityDays < 30'] }
@@ -39,4 +38,3 @@ filters:
       - { name: site:ST,       update: ['TrackerName == "scenetime.com"'] }
       - { name: site:TL,       update: ['TrackerName in ["tleechreload.org", "torrentleech.org"]'] }
       - { name: public,        update: ['IsPublic == true'] }
-    orphan:
