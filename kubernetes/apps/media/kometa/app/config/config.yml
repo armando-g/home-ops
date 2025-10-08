@@ -3,14 +3,9 @@
 libraries:
   Movies:
     collection_files:
-      - default: imdb
       - default: basic
       - default: franchise
       - default: resolution
-      - default: streaming
-      - default: oscars
-      - default: emmy
-      - default: golden
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
@@ -19,7 +14,6 @@ libraries:
       - default: basic
       - default: franchise
       - default: resolution
-      - default: streaming
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
