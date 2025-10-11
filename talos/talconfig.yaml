@@ -30,6 +30,11 @@ nodes:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/914684a73a4fdae7148457dbf4f4c481b7b1c52a4d247aa4368c7f1ab6847d69
     controlPlane: true
+    extensionServices:
+      - name: nut-client
+        configFiles:
+          - content: MONITOR 192.168.10.11 1 admin secret master
+            mountPath: /usr/local/etc/nut/upsmon.conf
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "24:8a:07:fb:62:b1"
@@ -44,6 +49,11 @@ nodes:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/914684a73a4fdae7148457dbf4f4c481b7b1c52a4d247aa4368c7f1ab6847d69
     controlPlane: true
+    extensionServices:
+      - name: nut-client
+        configFiles:
+          - content: MONITOR 192.168.10.11 1 admin secret master
+            mountPath: /usr/local/etc/nut/upsmon.conf
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "f4:52:14:f8:50:61"
@@ -58,6 +68,11 @@ nodes:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/914684a73a4fdae7148457dbf4f4c481b7b1c52a4d247aa4368c7f1ab6847d69
     controlPlane: true
+    extensionServices:
+      - name: nut-client
+        configFiles:
+          - content: MONITOR 192.168.10.11 1 admin secret master
+            mountPath: /usr/local/etc/nut/upsmon.conf
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "ec:0d:9a:0a:ec:21"
@@ -72,6 +87,11 @@ nodes:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/914684a73a4fdae7148457dbf4f4c481b7b1c52a4d247aa4368c7f1ab6847d69
     controlPlane: false
+    extensionServices:
+      - name: nut-client
+        configFiles:
+          - content: MONITOR 192.168.10.11 1 admin secret master
+            mountPath: /usr/local/etc/nut/upsmon.conf
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "32:d8:d3:34:53:36"
@@ -84,6 +104,11 @@ nodes:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/914684a73a4fdae7148457dbf4f4c481b7b1c52a4d247aa4368c7f1ab6847d69
     controlPlane: false
+    extensionServices:
+      - name: nut-client
+        configFiles:
+          - content: MONITOR 192.168.10.11 1 admin secret master
+            mountPath: /usr/local/etc/nut/upsmon.conf
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "82:2a:03:56:32:77"
