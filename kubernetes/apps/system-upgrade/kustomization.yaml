@@ -5,11 +5,7 @@ kind: Kustomization
 namespace: system-upgrade
 components:
   - ../../components/common
-  - ../../components/repos/app-template
+
 resources:
-  - ./system-upgrade-controller/ks.yaml
-configMapGenerator:
-  - name: system-upgrade-plan-versions
-    env: ./versions.env
-generatorOptions:
-  disableNameSuffixHash: true
+  - ./namespace.yaml
+  - ./tuppr/ks.yaml
