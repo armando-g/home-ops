@@ -37,4 +37,5 @@ filters:
       - { name: site:SP,       update: ['TrackerName == "seedpool.org"'] }
       - { name: site:ST,       update: ['TrackerName == "scenetime.com"'] }
       - { name: site:TL,       update: ['TrackerName in ["tleechreload.org", "torrentleech.org"]'] }
+      - { name: site:OTW,      update: ['TrackerName == "oldtoons.world"'] }
       - { name: public,        update: ['IsPublic == true'] }
