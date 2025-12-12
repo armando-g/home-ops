@@ -20,7 +20,7 @@ spec:
   postBuild:
     substitute:
       APP: *app
-      GATUS_SUBDOMAIN: radarr-1080p
+
       VOLSYNC_CAPACITY: 2Gi
   prune: true
   retryInterval: 2m
@@ -53,7 +53,7 @@ spec:
   postBuild:
     substitute:
       APP: *app
-      GATUS_SUBDOMAIN: radarr-2160p
+
       VOLSYNC_CAPACITY: 2Gi
   prune: true
   retryInterval: 2m
