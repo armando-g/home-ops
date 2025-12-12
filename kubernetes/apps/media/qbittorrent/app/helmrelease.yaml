@@ -79,7 +79,7 @@ spec:
               DNS_ADDRESS: 10.43.0.10
               FIREWALL_VPN_INPUT_PORTS: *bittorrentPort
               FIREWALL_INPUT_PORTS: *port
-              FIREWALL_OUTBOUND_SUBNETS: "10.69.0.0/16,10.96.0.0/16"
+              FIREWALL_OUTBOUND_SUBNETS: "10.0.0.0/8"
               SERVER_COUNTRIES: "United States"
             envFrom:
               - secretRef:
