@@ -80,6 +80,9 @@ spec:
       app:
         hostnames:
           - "{{ .Release.Name }}.armando.sh"
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            conditions: ["[STATUS] == 401"]
         parentRefs:
           - name: external
             namespace: kube-system
