@@ -16,19 +16,23 @@ libraries:
       - default: resolution
     overlay_files:
       - file: config/overlays/media_info.yml
+        template_variables:
+          builder_level: season
       - file: config/overlays/audience_rating.yml
+        template_variables:
+          builder_level: season
 
 settings:
   run_order:
-  - operations
-  - metadata
-  - collections
-  - overlays
+    - operations
+    - metadata
+    - collections
+    - overlays
   cache: true
   cache_expiration: 60
   custom_repo:
   asset_directory:
-  - config/assets
+    - config/assets
   asset_folders: true
   asset_depth: 0
   create_asset_folders: false
