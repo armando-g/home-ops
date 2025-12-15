@@ -5,7 +5,14 @@ libraries:
     collection_files:
       - default: basic
       - default: franchise
+      - default: genre
+      - default: based
+      - default: seasonal
       - default: resolution
+      - default: oscars
+      - default: emmy
+      - default: golden
+      - default: pca
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
@@ -13,7 +20,13 @@ libraries:
     collection_files:
       - default: basic
       - default: franchise
+      - default: genre
+      - default: based
+      - default: seasonal
       - default: resolution
+      - default: emmy
+      - default: golden
+      - default: pca
     overlay_files:
       - file: config/overlays/media_info.yml
         template_variables:
