@@ -28,7 +28,7 @@ spec:
           app:
             image:
               repository: ghcr.io/notifiarr/notifiarr
-              tag: v0.9.1@sha256:10c9d20bc359f61d610461c11fb3b719cee75b7d4a0d8a3e5b3d00b9a31c48dd
+              tag: v0.9.4@sha256:88fbfd256b28b7a6edb2ea6cd39ab999168d9e0d58b729bc5a9171d4843ee221
             env:
               TZ: "America/Chicago"
             envFrom:
