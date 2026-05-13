@@ -2,31 +2,14 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/kometa-team/kometa/nightly/json-schema/config-schema.json
 libraries:
   Movies:
-    collection_files:
-      - default: basic
-      - default: franchise
-      - default: genre
-      - default: based
-      - default: seasonal
-      - default: resolution
-      - default: oscars
-      - default: emmy
-      - default: golden
-      - default: pca
+    remove_overlays: true
+    delete_unmanaged_collections: true
     overlay_files:
       - file: config/overlays/media_info.yml
       - file: config/overlays/audience_rating.yml
   TV Shows:
-    collection_files:
-      - default: basic
-      - default: franchise
-      - default: genre
-      - default: based
-      - default: seasonal
-      - default: resolution
-      - default: emmy
-      - default: golden
-      - default: pca
+    remove_overlays: true
+    delete_unmanaged_collections: true
     overlay_files:
       - file: config/overlays/media_info.yml
         template_variables:
