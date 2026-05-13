@@ -38,6 +38,3 @@ spec:
   values:
     hubble:
       enabled: false
-      ui:
-        enabled: true
-        rollOutPods: true
