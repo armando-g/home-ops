@@ -9,7 +9,6 @@ components:
 resources:
   - ./autobrr/ks.yaml
   - ./bazarr/ks.yaml
-  - ./cross-seed/ks.yaml
   - ./jellyseerr/ks.yaml
   - ./kometa/ks.yaml
   - ./notifiarr/ks.yaml
@@ -21,5 +20,4 @@ resources:
   - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml
-  - ./tqm/ks.yaml
   - ./qui/ks.yaml
