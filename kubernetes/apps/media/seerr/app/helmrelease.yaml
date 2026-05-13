@@ -78,8 +78,9 @@ spec:
           - "{{ .Release.Name }}.armando.sh"
           - requests.armando.sh
         parentRefs:
-          - name: envoy-external
-            namespace: network
+          - name: internal
+            namespace: kube-system
+            sectionName: https
     persistence:
       config:
         existingClaim: "{{ .Release.Name }}"
