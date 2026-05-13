@@ -11,7 +11,6 @@ resources:
   - ./bazarr/ks.yaml
   - ./brrpolice/ks.yaml
   - ./jellyseerr/ks.yaml
-  - ./kometa/ks.yaml
   - ./notifiarr/ks.yaml
   - ./plex/ks.yaml
   - ./profilarr/ks.yaml
