@@ -9,6 +9,7 @@ components:
 resources:
   - ./autobrr/ks.yaml
   - ./bazarr/ks.yaml
+  - ./brrpolice/ks.yaml
   - ./jellyseerr/ks.yaml
   - ./kometa/ks.yaml
   - ./notifiarr/ks.yaml
