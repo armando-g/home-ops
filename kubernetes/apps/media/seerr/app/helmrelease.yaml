@@ -75,8 +75,8 @@ spec:
           gatus.home-operations.com/endpoint: |-
             conditions: ["[STATUS] == 200"]
         hostnames:
-          - "{{ .Release.Name }}.turbo.ac"
-          - requests.turbo.ac
+          - "{{ .Release.Name }}.armando.sh"
+          - requests.armando.sh
         parentRefs:
           - name: envoy-external
             namespace: network
