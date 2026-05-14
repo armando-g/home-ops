@@ -78,7 +78,7 @@ spec:
           - "{{ .Release.Name }}.armando.sh"
           - requests.armando.sh
         parentRefs:
-          - name: envoy-internal
+          - name: envoy-external
             namespace: network
     persistence:
       config:
