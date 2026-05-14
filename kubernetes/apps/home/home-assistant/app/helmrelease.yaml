@@ -61,13 +61,8 @@ spec:
         hostnames:
           - "hass.armando.sh"
         parentRefs:
-          - name: external
-            namespace: kube-system
-            sectionName: https
-        rules:
-          - backendRefs:
-              - name: *app
-                port: *port
+          - name: envoy-external
+            namespace: network
     persistence:
       config:
         existingClaim: home-assistant

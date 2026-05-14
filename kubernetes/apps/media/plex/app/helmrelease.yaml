@@ -30,7 +30,7 @@ spec:
               tag: 1.43.1@sha256:a9c3723cb31cc9621df27cf5801184c290293adf1df2bfaea4b8b6fc01dbfd96
             env:
               TZ: America/Chicago
-              PLEX_ADVERTISE_URL: https://plex.armando.sh:443,http://192.168.60.10:32400
+              PLEX_ADVERTISE_URL: https://plex.armando.sh:443,http://192.168.60.10:32400,http://plex.media.svc.cluster.local:32400
               PLEX_PREFERENCE_1: GenerateBIFFrameInterval=12
             probes:
               liveness: &probes
@@ -79,29 +79,30 @@ spec:
             port: *port
     route:
       app:
-        hostnames:
-          - "{{ .Release.Name }}.armando.sh"
         annotations:
           gatus.home-operations.com/endpoint: |-
             conditions: ["[STATUS] == 401"]
+        hostnames:
+          - "{{ .Release.Name }}.armando.sh"
         parentRefs:
-          - name: external
-            namespace: kube-system
-            sectionName: https
+          - name: envoy-external
+            namespace: network
         rules:
-          - backendRefs:
-              - name: *app
+          - # Ref: https://forums.plex.tv/t/external-srt-subtitles-are-not-working-w-reverse-proxy/886540
+            backendRefs:
+              - identifier: app
                 port: *port
             filters:
               - type: RequestHeaderModifier
                 requestHeaderModifier:
-                  remove: ["Range"]
+                  remove:
+                    - Range
             matches:
               - path:
                   type: PathPrefix
                   value: /library/streams
           - backendRefs:
-              - name: *app
+              - identifier: app
                 port: *port
     persistence:
       config:

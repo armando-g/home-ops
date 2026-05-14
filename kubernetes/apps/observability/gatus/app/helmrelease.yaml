@@ -94,13 +94,8 @@ spec:
         hostnames:
           - status.armando.sh
         parentRefs:
-          - name: external
-            namespace: kube-system
-            sectionName: https
-        rules:
-          - backendRefs:
-              - name: *app
-                port: *port
+          - name: envoy-external
+            namespace: network
     persistence:
       config:
         existingClaim: gatus

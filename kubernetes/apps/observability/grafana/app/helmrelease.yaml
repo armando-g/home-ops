@@ -237,9 +237,8 @@ spec:
         hostnames:
           - "{{ .Release.Name }}.armando.sh"
         parentRefs:
-          - name: internal
-            namespace: kube-system
-            sectionName: https
+          - name: envoy-internal
+            namespace: network
     persistence:
       enabled: false
     testFramework:

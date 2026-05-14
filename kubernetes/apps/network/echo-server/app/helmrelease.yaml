@@ -79,15 +79,8 @@ spec:
             scrapeTimeout: 10s
     route:
       app:
-        hostnames: ["{{ .Release.Name }}.armando.sh"]
-        annotations:
-          gatus.home-operations.com/endpoint: |-
-            conditions: ["[STATUS] == 200"]
+        hostnames:
+          - "{{ .Release.Name }}.armando.sh"
         parentRefs:
-          - name: external
-            namespace: kube-system
-            sectionName: https
-        rules:
-          - backendRefs:
-              - name: *app
-                port: *port
+          - name: envoy-internal
+            namespace: network

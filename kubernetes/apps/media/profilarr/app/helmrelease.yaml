@@ -40,13 +40,8 @@ spec:
         hostnames:
           - "{{ .Release.Name }}.armando.sh"
         parentRefs:
-          - name: internal
-            namespace: kube-system
-            sectionName: https
-        rules:
-          - backendRefs:
-              - name: *app
-                port: 6868
+          - name: envoy-internal
+            namespace: network
     persistence:
       config:
         existingClaim: *app
