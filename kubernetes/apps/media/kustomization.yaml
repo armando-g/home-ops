@@ -10,7 +10,6 @@ resources:
   - ./autobrr/ks.yaml
   - ./bazarr/ks.yaml
   - ./brrpolice/ks.yaml
-  - ./jellyseerr/ks.yaml
   - ./notifiarr/ks.yaml
   - ./plex/ks.yaml
   - ./profilarr/ks.yaml
