@@ -71,14 +71,18 @@ spec:
             port: *healthPort
     route:
       app:
-        hostnames:
-          - "{{ .Release.Name }}.armando.sh"
         annotations:
           gatus.home-operations.com/endpoint: |-
-            conditions: ["[STATUS] == 404"]
+            conditions: ["[STATUS] == 200"]
+        hostnames:
+          - "{{ .Release.Name }}.armando.sh"
         parentRefs:
           - name: envoy-external
             namespace: network
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *port
     persistence:
       config-file:
         type: configMap
