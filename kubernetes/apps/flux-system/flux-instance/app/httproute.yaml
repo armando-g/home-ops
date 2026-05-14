@@ -8,11 +8,11 @@ metadata:
     gatus.home-operations.com/endpoint: |-
       conditions: ["[STATUS] == 404"]
 spec:
-  hostnames: ["flux-webhook.armando.sh"]
+  hostnames:
+    - flux-webhook.armando.sh
   parentRefs:
     - name: envoy-external
       namespace: network
-      sectionName: https
   rules:
     - backendRefs:
         - name: webhook-receiver
