@@ -31,8 +31,8 @@ spec:
           enabled: true
           hostnames: ["alertmanager.armando.sh"]
           parentRefs:
-            - name: internal
-              namespace: kube-system
+            - name: envoy-internal
+              namespace: network
               sectionName: https
       alertmanagerSpec:
         alertmanagerConfiguration:
