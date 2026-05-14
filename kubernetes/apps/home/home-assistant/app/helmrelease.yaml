@@ -63,7 +63,7 @@ spec:
             conditions: ["[STATUS] == 200"]
 
         hostnames:
-          - "{{ .Release.Name }}.turbo.ac"
+          - "{{ .Release.Name }}.armando.sh"
           - "hass.armando.sh"
         parentRefs:
           - name: envoy-external
