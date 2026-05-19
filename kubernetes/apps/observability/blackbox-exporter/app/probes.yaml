@@ -12,7 +12,7 @@ spec:
   targets:
     staticConfig:
       static:
-        - unraider.servers.armando.sh:2049
+        - 192.168.20.5:2049
   metricRelabelings:
     - targetLabel: service
       replacement: blackbox-exporter
