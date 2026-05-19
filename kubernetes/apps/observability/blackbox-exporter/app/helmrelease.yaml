@@ -37,14 +37,15 @@ spec:
     prometheusRule:
       enabled: true
       rules:
-        - alert: BlackboxProbeFailed
-          expr: probe_success == 0
+        - alert: LanProbeFailed
+          expr: |-
+            probe_success{service="blackbox-exporter-lan"} == 0
           for: 15m
           labels:
             severity: critical
           annotations:
             summary: |-
-              The host {{ $labels.target }} is currently unreachable
+              The probe targeting {{ $labels.instance }} is currently having connectivity issues
     securityContext:
       readOnlyRootFilesystem: true
       allowPrivilegeEscalation: false
