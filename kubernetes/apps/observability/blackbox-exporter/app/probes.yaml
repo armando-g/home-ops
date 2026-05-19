@@ -8,12 +8,12 @@ spec:
   jobName: nfs_probe
   module: tcp_connect
   prober:
-    url: blackbox-exporter-lan.observability.svc.cluster.local:9115
+    url: blackbox-exporter.observability.svc.cluster.local:9115
   targets:
     staticConfig:
       static:
         - unraider.servers.armando.sh:2049
   metricRelabelings:
     - targetLabel: service
-      replacement: blackbox-exporter-lan
+      replacement: blackbox-exporter
       action: replace
