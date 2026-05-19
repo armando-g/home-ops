@@ -1,5 +1,5 @@
 ---
-# yaml-language-server: $schema=https://k8s-schemas.bjw-s.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/helm.toolkit.fluxcd.io/helmrelease_v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -8,11 +8,9 @@ spec:
   chartRef:
     kind: OCIRepository
     name: blackbox-exporter
-  interval: 30m
+  interval: 1h
   values:
     fullnameOverride: blackbox-exporter
-    image:
-      registry: quay.io
     config:
       modules:
         http_2xx:
@@ -34,6 +32,10 @@ spec:
           timeout: 5s
           tcp:
             preferred_ip_protocol: ip4
+    serviceMonitor:
+      enabled: true
+      selfMonitor:
+        enabled: true
     prometheusRule:
       enabled: true
       rules:
@@ -46,14 +48,3 @@ spec:
           annotations:
             summary: |-
               The probe targeting {{ $labels.instance }} is currently having connectivity issues
-    securityContext:
-      readOnlyRootFilesystem: true
-      allowPrivilegeEscalation: false
-      capabilities:
-        add:
-          - NET_RAW
-    serviceMonitor:
-      enabled: true
-      defaults:
-        interval: 1m
-        scrapeTimeout: 10s
