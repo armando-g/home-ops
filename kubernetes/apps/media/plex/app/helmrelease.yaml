@@ -74,10 +74,10 @@ spec:
         supplementalGroups: [44]
     service:
       app:
-        controller: plex
         type: LoadBalancer
         annotations:
           lbipam.cilium.io/ips: 192.168.60.10
+        externalTrafficPolicy: Local
         ports:
           http:
             port: *port
