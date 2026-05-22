@@ -96,6 +96,11 @@ spec:
             backendRefs:
               - identifier: app
                 port: *port
+            filters:
+              - type: RequestHeaderModifier
+                requestHeaderModifier:
+                  remove:
+                    - Range
             matches:
               - path:
                   type: PathPrefix
