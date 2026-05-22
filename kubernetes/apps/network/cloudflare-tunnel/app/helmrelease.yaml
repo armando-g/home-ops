@@ -92,7 +92,7 @@ spec:
                 originRequest:
                   http2Origin: true
                   keepAliveTimeout: 3600s
-                  originServerName: external.turbo.ac
+                  originServerName: external.armando.sh
                   tcpKeepAlive: 7200s
                 service: https://envoy-external.{{ .Release.Namespace }}.svc.cluster.local:443
               - service: http_status:404
