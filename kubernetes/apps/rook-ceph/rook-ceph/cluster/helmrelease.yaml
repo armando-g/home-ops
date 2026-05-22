@@ -71,7 +71,7 @@ spec:
               - name: "/dev/sda"
           - name: "k8s-04"
             devices:
-              - name: "/dev/sdb"
+              - name: "sdb"
           - name: "k8s-05"
             devices:
               - name: "/dev/sdb"
