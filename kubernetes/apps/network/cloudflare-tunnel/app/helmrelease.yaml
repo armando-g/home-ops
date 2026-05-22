@@ -32,9 +32,6 @@ spec:
             env:
               NO_AUTOUPDATE: true
               TUNNEL_METRICS: 0.0.0.0:8080
-              #TUNNEL_ORIGIN_ENABLE_HTTP2: true
-              #TUNNEL_POST_QUANTUM: true
-              #TUNNEL_TRANSPORT_PROTOCOL: quic
               TUNNEL_ID: "77235f71-4640-4d2d-b772-f04799949bab"
             envFrom:
               - secretRef:

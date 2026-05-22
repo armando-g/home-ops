@@ -30,7 +30,7 @@ spec:
               repository: ghcr.io/mendhak/http-https-echo
               tag: 40
             env:
-              HTTP_PORT: &port 8080
+              HTTP_PORT: &port 80
               LOG_WITHOUT_NEWLINE: true
               LOG_IGNORE_PATH: /healthz
               PROMETHEUS_ENABLED: true
@@ -70,17 +70,15 @@ spec:
             port: *port
     serviceMonitor:
       app:
-        serviceName: echo-server
         endpoints:
           - port: http
-            scheme: http
-            path: /metrics
-            interval: 1m
-            scrapeTimeout: 10s
     route:
       app:
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            conditions: ["[STATUS] == 200"]
         hostnames:
-          - "{{ .Release.Name }}.armando.sh"
+          - "{{ .Release.Name }}.turbo.ac"
         parentRefs:
-          - name: envoy-internal
+          - name: envoy-external
             namespace: network
