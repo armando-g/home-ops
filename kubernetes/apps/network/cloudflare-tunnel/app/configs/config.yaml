@@ -1,5 +1,8 @@
 ---
 originRequest:
+  http2Origin: true
+  keepAliveTimeout: 3600s
+  tcpKeepAlive: 7200s
   originServerName: "external.armando.sh"
 
 ingress:
