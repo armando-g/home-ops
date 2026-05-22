@@ -101,6 +101,13 @@ spec:
                 requestHeaderModifier:
                   remove:
                     - Range
+                  add:
+                    - name: X-Forwarded-Host
+                      value: "{{ .Release.Name }}.armando.sh"
+                    - name: X-Forwarded-Proto
+                      value: "https"
+                    - name: X-Forwarded-Port
+                      value: "443"
             matches:
               - path:
                   type: PathPrefix
