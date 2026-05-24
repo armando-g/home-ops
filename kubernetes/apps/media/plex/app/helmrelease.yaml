@@ -79,7 +79,7 @@ spec:
       app:
         annotations:
           gatus.home-operations.com/endpoint: |-
-            conditions: ["[STATUS] == 401"]
+            conditions: ["[STATUS] == 200"]
             url: https://{{ .Release.Name }}.armando.sh/identity
         hostnames:
           - "{{ .Release.Name }}.armando.sh"
