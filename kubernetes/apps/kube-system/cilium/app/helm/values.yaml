@@ -45,7 +45,9 @@ l2announcements:
 loadBalancer:
   algorithm: maglev
   mode: "dsr"
-localRedirectPolicy: true
+  serviceTopology: true
+localRedirectPolicies:
+  enabled: true
 operator:
   dashboards:
     enabled: true
