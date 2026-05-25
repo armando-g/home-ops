@@ -25,10 +25,11 @@ spec:
         containers:
           app:
             image:
-              repository: santiagosayshey/profilarr
-              tag: v1.1.4@sha256:8a514f8429cd33885166facc9eb6504fa9ded056c737609e5e8ef32ae0afb350
+              repository: ghcr.io/dictionarry-hub/profilarr
+              tag: v2.0.5@sha256:07c796009e02a9795189be23c67a101f2eb2d25fa8bd44ed9c11af11ce305b3c
             env:
               TZ: America/Chicago
+              ORIGIN: https://profilarr.armando.sh
     service:
       app:
         controller: profilarr
