@@ -7,19 +7,19 @@ components:
   - ../../components/common
   - ../../components/repos/app-template
 resources:
-  - ./agregarr/ks.yaml
+  #- ./agregarr/ks.yaml
   - ./autobrr/ks.yaml
   - ./bazarr/ks.yaml
   - ./brrpolice/ks.yaml
   - ./jellyfin/ks.yaml
   - ./notifiarr/ks.yaml
-  - ./plex/ks.yaml
+  #- ./plex/ks.yaml
   - ./profilarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./qui/ks.yaml
   - ./radarr/ks.yaml
   - ./seerr/ks.yaml
-  - ./sabnzbd/ks.yaml
+  #- ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
-  - ./tautulli/ks.yaml
+  #- ./tautulli/ks.yaml
