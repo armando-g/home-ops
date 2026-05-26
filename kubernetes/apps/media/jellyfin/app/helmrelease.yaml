@@ -85,7 +85,5 @@ spec:
         globalMounts:
           - path: /media
             readOnly: true
-      tmpfs:
+      tmp:
         type: emptyDir
-        globalMounts:
-          - path: /cache
