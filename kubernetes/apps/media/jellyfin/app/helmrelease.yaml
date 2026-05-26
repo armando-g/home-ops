@@ -75,6 +75,24 @@ spec:
         parentRefs:
           - name: envoy-external
             namespace: network
+        rules:
+          -
+            backendRefs:
+              - identifier: app
+                port: 8096
+            filters:
+              - type: ResponseHeaderModifier
+                responseHeaderModifier:
+                  set:
+                    - name: "Access-Control-Allow-Origin"
+                      value: "*"
+            matches:
+              - path:
+                  type: PathPrefix
+                  value: /
+          - backendRefs:
+              - identifier: app
+                port: 8096
     persistence:
       config:
         existingClaim: "{{ .Release.Name }}"
