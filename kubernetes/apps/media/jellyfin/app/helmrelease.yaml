@@ -80,6 +80,11 @@ spec:
               - path:
                   type: PathPrefix
                   value: /
+
+            backendRefs:
+              - name: app
+                port: http
+
             filters:
               - type: ResponseHeaderModifier
                 responseHeaderModifier:
