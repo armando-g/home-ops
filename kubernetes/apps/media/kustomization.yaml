@@ -11,6 +11,7 @@ resources:
   - ./autobrr/ks.yaml
   - ./bazarr/ks.yaml
   - ./brrpolice/ks.yaml
+  - ./flaresolverr/ks.yaml
   - ./jellyfin/ks.yaml
   - ./notifiarr/ks.yaml
   #- ./plex/ks.yaml
