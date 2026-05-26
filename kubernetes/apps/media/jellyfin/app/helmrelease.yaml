@@ -83,7 +83,7 @@ spec:
 
             backendRefs:
               - name: app
-                port: http
+                port: 8096
 
             filters:
               - type: ResponseHeaderModifier
