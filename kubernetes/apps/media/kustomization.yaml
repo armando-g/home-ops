@@ -14,7 +14,7 @@ resources:
   - ./flaresolverr/ks.yaml
   - ./jellyfin/ks.yaml
   - ./notifiarr/ks.yaml
-  #- ./plex/ks.yaml
+  - ./plex/ks.yaml
   - ./profilarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml
