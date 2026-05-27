@@ -23,8 +23,8 @@ spec:
               TZ: America/Chicago
               PLEX_ADVERTISE_URL: https://plex.armando.sh:443,http://192.168.60.10:32400,http://plex.media.svc.cluster.local:32400
               PLEX_NO_AUTH_NETWORKS: 192.168.10.0/24
-              PLEX_PREFERENCE_FriendlyName: Plex
-              PLEX_PREFERENCE_GenerateBIFFrameInterval: 30
+              PLEX_PREFERENCE_FriendlyName: FriendlyName=Plex
+              PLEX_PREFERENCE_GenerateBIFFrameInterval: GenerateBIFFrameInterval=30
             probes:
               liveness:
                 enabled: true
