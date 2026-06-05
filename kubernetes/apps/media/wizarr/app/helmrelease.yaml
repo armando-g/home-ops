@@ -31,20 +31,9 @@ spec:
               TZ: America/Chicago
               PUID: 1001
               PGID: 100
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: {drop: ["ALL"]}
             resources:
               requests:
                 cpu: 10m
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1001
-        runAsGroup: 100
-        fsGroup: 100
-        fsGroupChangePolicy: OnRootMismatch
     service:
       app:
         controller: wizarr
