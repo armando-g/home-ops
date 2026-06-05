@@ -62,3 +62,9 @@ spec:
     persistence:
       config:
         existingClaim: "{{ .Release.Name }}"
+      tmpfs:
+        type: emptyDir
+        advancedMounts:
+          wizarr:
+            app:
+              - path: /.cache
