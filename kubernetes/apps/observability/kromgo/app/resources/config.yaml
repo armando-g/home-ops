@@ -60,7 +60,7 @@ metrics:
     title: Power
 
   - name: cluster_age_days
-    query: round((time() - min(kube_node_created) ) / 86400)
+    query: round(time() - min(kube_node_created))
     suffix: "d"
     colors:
       - { color: "green", min: 0, max: 180 }
