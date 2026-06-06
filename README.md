@@ -8,11 +8,11 @@
 
 <div align="center">
 
+![age](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_age_days&style=for-the-badge&logoColor=white)
 ![nodes](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_node_count&style=for-the-badge&logoColor=white)
 ![pods](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_pod_count&style=for-the-badge&logoColor=white)
 ![cpu](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_cpu_usage&style=for-the-badge&logoColor=white)
 ![memory](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_memory_usage&style=for-the-badge&logoColor=white)
-![uptime](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_uptime_days&style=for-the-badge&logoColor=white)
 ![alerts](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_alert_count&style=for-the-badge&logoColor=white)
 
 </div>
