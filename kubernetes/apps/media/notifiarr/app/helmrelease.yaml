@@ -29,8 +29,6 @@ spec:
             image:
               repository: ghcr.io/notifiarr/notifiarr
               tag: v0.9.5@sha256:a9a1f37f924d740107874675df6b6a5edd87e5f66ca72ad27481a4bdfd42d162
-            env:
-
             envFrom:
               - secretRef:
                   name: notifiarr-secret
