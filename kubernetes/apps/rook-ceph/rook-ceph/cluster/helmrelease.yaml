@@ -41,6 +41,11 @@ spec:
           AUTH_INSECURE_KEYS_CREATABLE:
             policy: mute
       skipUpgradeChecks: true
+      security:
+        cephx:
+          daemon:
+            keyRotationPolicy: KeyGeneration
+            keyGeneration: 2
       cephConfig:
         global:
           bdev_enable_discard: "true" # quote
