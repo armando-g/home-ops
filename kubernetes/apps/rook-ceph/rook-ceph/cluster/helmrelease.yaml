@@ -90,9 +90,13 @@ spec:
           - name: "k8s-04"
             devices:
               - name: "/dev/sdb"
+                config:
+                  deviceClass: "ssd"
           - name: "k8s-05"
             devices:
               - name: "/dev/sdb"
+                config:
+                  deviceClass: "ssd"
     cephBlockPools:
       - name: ceph-blockpool
         spec:
