@@ -46,6 +46,8 @@ spec:
           daemon:
             keyRotationPolicy: KeyGeneration
             keyGeneration: 2
+        csi:
+          keyType: aes
       cephConfig:
         global:
           bdev_enable_discard: "true" # quote
