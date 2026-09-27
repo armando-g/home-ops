@@ -40,6 +40,7 @@ spec:
             policy: mute
           AUTH_INSECURE_KEYS_CREATABLE:
             policy: mute
+      skipUpgradeChecks: true
       cephConfig:
         global:
           bdev_enable_discard: "true" # quote
