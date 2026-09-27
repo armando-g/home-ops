@@ -30,6 +30,16 @@ spec:
     toolbox:
       enabled: true
     cephClusterSpec:
+      healthCheck:
+        muteHealthWarning:
+          AUTH_INSECURE_ROTATING_SERVICE_KEY_TYPE:
+            policy: mute
+          AUTH_INSECURE_CLIENT_KEY_TYPE:
+            policy: mute
+          AUTH_INSECURE_KEYS_ALLOWED:
+            policy: mute
+          AUTH_INSECURE_KEYS_CREATABLE:
+            policy: mute
       cephConfig:
         global:
           bdev_enable_discard: "true" # quote
