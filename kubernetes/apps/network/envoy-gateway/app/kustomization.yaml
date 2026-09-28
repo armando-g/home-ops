@@ -6,7 +6,6 @@ resources:
   - ./certificate.yaml
   - ./envoy.yaml
   - ./external-routes.yaml
-  - ./grafanadashboard.yaml
   - ./helmrelease.yaml
   - ./observability.yaml
   - ./ocirepository.yaml
