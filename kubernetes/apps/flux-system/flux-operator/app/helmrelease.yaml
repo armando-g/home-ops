@@ -9,7 +9,6 @@ spec:
   chartRef:
     kind: OCIRepository
     name: flux-operator
-    namespace: flux-system
   install:
     remediation:
       retries: 3
@@ -18,6 +17,9 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
-  valuesFrom:
-    - kind: ConfigMap
-      name: flux-operator-values
+  values:
+    serviceMonitor:
+      create: true
+    web:
+      networkPolicy:
+        create: false
