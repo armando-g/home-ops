@@ -22,6 +22,8 @@ spec:
     - name: flux-operator
       namespace: flux-system
   values:
+    commonAnnotations:
+      fluxcd.controlplane.io/reconcileArtifactEvery: 1h
     instance:
       distribution:
         # renovate: datasource=github-releases depName=controlplaneio-fluxcd/distribution
@@ -35,10 +37,10 @@ spec:
         - notification-controller
       sync:
         kind: GitRepository
-        url: "ssh://git@github.com/armando-g/home-ops.git"
-        pullSecret: github-deploy-key
-        ref: "refs/heads/main"
+        url: https://github.com/armando-g/home-ops
+        ref: refs/heads/main
         path: kubernetes/flux/cluster
+        interval: 1h
       kustomize:
         patches:
           - # Add Sops decryption to 'flux-system' Kustomization
