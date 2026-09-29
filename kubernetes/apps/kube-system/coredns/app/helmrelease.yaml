@@ -10,14 +10,6 @@ spec:
     kind: OCIRepository
     name: coredns
     namespace: kube-system
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: 3
   values:
     fullnameOverride: coredns
     k8sAppLabelOverride: kube-dns

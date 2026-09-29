@@ -24,14 +24,6 @@ spec:
         kind: HelmRepository
         name: descheduler
         namespace: kube-system
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: 3
   values:
     replicas: 2
     kind: Deployment
