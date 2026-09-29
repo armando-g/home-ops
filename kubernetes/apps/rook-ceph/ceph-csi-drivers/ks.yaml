@@ -6,6 +6,8 @@ metadata:
   name: &app ceph-csi-drivers
   namespace: &namespace rook-ceph
 spec:
+  dependsOn:
+    - name: rook-ceph-operator
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
