@@ -25,16 +25,6 @@ spec:
         kind: HelmRepository
         name: actions-runner-controller
         namespace: actions-runner-system
-  install:
-    crds: CreateReplace
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    crds: CreateReplace
-    remediation:
-      strategy: rollback
-      retries: 3
   values:
     fullnameOverride: *name
     replicaCount: 1
