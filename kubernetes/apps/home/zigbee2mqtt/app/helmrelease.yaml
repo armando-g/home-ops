@@ -82,5 +82,6 @@ spec:
         enabled: true
         type: hostPath
         hostPath: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_eaec2e112e86ec1183c95d1719c2d21c-if00-port0
+        hostPathType: CharDevice
         globalMounts:
           - path: /dev/ttyUSB0
