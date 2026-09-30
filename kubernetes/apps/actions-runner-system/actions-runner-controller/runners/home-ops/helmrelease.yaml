@@ -14,18 +14,10 @@ spec:
         kind: HelmRepository
         name: actions-runner-controller
         namespace: actions-runner-system
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: 3
   values:
     githubConfigUrl: https://github.com/armando-g/home-ops
     githubConfigSecret: home-ops-runner-secret
-    minRunners: 1
+    minRunners: 0
     maxRunners: 3
     containerMode:
       type: kubernetes

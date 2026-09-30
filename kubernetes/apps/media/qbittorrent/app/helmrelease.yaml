@@ -55,7 +55,7 @@ spec:
             #       failureThreshold: 30
             #       periodSeconds: 10
             securityContext:
-              runAsUser: 1001
+              runAsUser: 1000
               runAsGroup: 100
               runAsNonRoot: true
               allowPrivilegeEscalation: false
