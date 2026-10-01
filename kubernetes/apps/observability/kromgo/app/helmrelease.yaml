@@ -135,11 +135,3 @@ spec:
           - backendRefs:
               - identifier: app
                 port: *port
-    persistence:
-      config-file:
-        type: configMap
-        name: kromgo-configmap
-        globalMounts:
-          - path: /kromgo/config.yaml
-            subPath: config.yaml
-            readOnly: true
