@@ -1,18 +1,19 @@
 <div align="center">
 
-![talos](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Ftalos_version&style=for-the-badge&logo=talos)
-![kubernetes](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fkubernetes_version&style=for-the-badge&logo=kubernetes)
-![flux](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fflux_version&style=for-the-badge&logo=flux)
+[![Talos](https://kromgo.armando.sh/badges/talos_version)](https://talos.dev)&nbsp;&nbsp;
+[![Kubernetes](https://kromgo.armando.sh/badges/kubernetes_version)]()&nbsp;&nbsp;
+[![Flux](https://kromgo.armando.sh/badges/flux_version)](https://fluxcd.io)
 
 </div>
 
 <div align="center">
 
-![age](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_age_days&style=for-the-badge&logoColor=white)
-![nodes](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_node_count&style=for-the-badge&logoColor=white)
-![pods](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_pod_count&style=for-the-badge&logoColor=white)
-![cpu](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_cpu_usage&style=for-the-badge&logoColor=white)
-![memory](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_memory_usage&style=for-the-badge&logoColor=white)
-![alerts](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.armando.sh%2Fcluster_alert_count&style=for-the-badge&logoColor=white)
+[![Age](https://kromgo.armando.sh/badges/cluster_age_days)](https://github.com/kashalls/kromgo/)&nbsp;&nbsp;
+[![Uptime](https://kromgo.armando.sh/badges/cluster_uptime_days)](https://github.com/kashalls/kromgo/)&nbsp;&nbsp;
+[![Nodes](https://kromgo.armando.sh/badges/cluster_node_count)](https://github.com/kashalls/kromgo/)&nbsp;&nbsp;
+[![Pods](https://kromgo.armando.sh/badges/cluster_pod_count)](https://github.com/kashalls/kromgo/)&nbsp;&nbsp;
+[![CPU](https://kromgo.armando.sh/badges/cluster_cpu_usage)](https://github.com/kashalls/kromgo/)&nbsp;&nbsp;
+[![Memory](https://kromgo.armando.sh/badges/cluster_memory_usage)](https://github.com/kashalls/kromgo/)&nbsp;&nbsp;
+[![Alerts](https://kromgo.armando.sh/badges/cluster_alert_count)](https://github.com/kashalls/kromgo)
 
 </div>
