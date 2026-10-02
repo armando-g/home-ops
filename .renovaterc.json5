@@ -2,13 +2,19 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
     "github>home-operations/renovate-presets#8.1.0",
+    "github>home-operations/renovate-presets//apps/grafanaDashboards.json5#8.1.0",
     "github>home-operations/renovate-presets//apps/talosFactory.json5#8.1.0",
   ],
   dependencyDashboard: true,
   dependencyDashboardTitle: "Renovate Dashboard 🤖",
   suppressNotifications: ["prEditedNotification", "prIgnoreNotification"],
   schedule: ["every weekend"],
-  ignorePaths: ["**/*.sops.*", "**/resources/**"],
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: ["before 3am on the first day of the month"],
+    commitMessageExtra: "({{manager}})",
+    additionalBranchPrefix: "{{manager}}-",
+  },
   packageRules: [
     // Auto-merge rules
     {
