@@ -31,11 +31,6 @@ spec:
   interval: 1h
   path: ./kubernetes/apps
   prune: true
-  postBuild:
-    substituteFrom:
-      - name: cluster-settings
-        kind: ConfigMap
-        optional: true
   retryInterval: 2m
   sourceRef:
     kind: GitRepository
