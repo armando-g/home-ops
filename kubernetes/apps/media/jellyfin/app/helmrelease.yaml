@@ -20,7 +20,8 @@ spec:
               repository: ghcr.io/jellyfin/jellyfin
               tag: 12.1@sha256:008ec8024bdaaa6f0a3f0de468e185633eeba9d67c56936e8dbf5ef6b8d6200f
             env:
-              JELLYFIN_AutoDiscovery: "false"
+              DOTNET_SYSTEM_IO_DISABLEFILELOCKING: "true"
+              JELLYFIN_PublishedServerUrl: "https://{{ .Release.Name }}.armando.sh,http://192.168.60.11:8096"
             probes:
               startup:
                 enabled: true
@@ -94,12 +95,15 @@ spec:
     persistence:
       config:
         existingClaim: "{{ .Release.Name }}"
+      transcode:
+        type: emptyDir
       media:
         type: nfs
         server: unraider.servers.armando.sh
         path: /mnt/user/media
         globalMounts:
           - path: /media
-            readOnly: true
-      tmp:
-        type: emptyDir
+      cache:
+        existingClaim: jellyfin-cache
+        globalMounts:
+          - path: /cache
