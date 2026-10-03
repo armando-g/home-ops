@@ -46,9 +46,9 @@ url = "https://github.com/bitwarden/sdk-sm/releases/download/bws-v2.1.0/bws-aarc
 url_api = "https://api.github.com/repos/bitwarden/sdk-sm/releases/assets/426507211"
 
 [[tools."cargo:just-lsp"]]
-version = "0.1.0"
+version = "0.10.0"
 backend = "cargo:just-lsp"
-specifiers = ["0.1.0"]
+specifiers = ["0.10.0"]
 
 [[tools.flux2]]
 version = "2.9.5"
