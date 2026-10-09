@@ -21,6 +21,8 @@ spec:
               tag: 12.1@sha256:008ec8024bdaaa6f0a3f0de468e185633eeba9d67c56936e8dbf5ef6b8d6200f
             env:
               DOTNET_SYSTEM_IO_DISABLEFILELOCKING: "true"
+              JELLYFIN_FFmpeg__analyzeduration: 50000000
+              JELLYFIN_FFmpeg__probesize: 50000000
               JELLYFIN_PublishedServerUrl: "https://{{ .Release.Name }}.armando.sh,http://192.168.60.11:8096"
             probes:
               startup:
@@ -64,7 +66,13 @@ spec:
         externalTrafficPolicy: Local
         ports:
           http:
-            port: 8096
+            port: &port 8096
+            protocol: TCP
+            targetPort: *port
+          discovery:
+            port: &discoveryPort 7359
+            protocol: UDP
+            targetPort: *discoveryPort
     route:
       app:
         annotations:
