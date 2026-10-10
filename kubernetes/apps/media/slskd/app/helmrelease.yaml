@@ -1,0 +1,131 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app slskd
+spec:
+  interval: 30m
+  chartRef:
+    kind: OCIRepository
+    name: slskd
+  values:
+    controllers:
+      slskd:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/slskd/slskd
+              tag: 0.26.1@sha256:588af49abc3088d639c8f1174d3bfad6e92c093a275a593140e3ac9311ebf6c4
+            env:
+              SLSKD_HTTP_PORT: &port 80
+              SLSKD_SLSK_LISTEN_PORT: &soulseekPort 53911
+              SLSKD_APP_DIR: /config
+              SLSKD_NO_AUTH: true
+              SLSKD_NO_DISK_LOGGER: true
+              SLSKD_NO_HTTPS: true
+              SLSKD_NO_VERSION_CHECK: true
+              DOTNET_BUNDLE_EXTRACT_BASE_DIR: /tmp/.net
+            envFrom:
+              - secretRef:
+                  name: slskd-secret
+            securityContext:
+              runAsUser: 1000
+              runAsGroup: 100
+              runAsNonRoot: true
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+            resources:
+              requests:
+                cpu: 10m
+              limits:
+                memory: 1Gi
+          gluetun:
+            image:
+              repository: ghcr.io/qdm12/gluetun
+              tag: v3.41.3
+            env:
+              VPN_SERVICE_PROVIDER: airvpn
+              VPN_TYPE: wireguard
+              VPN_INTERFACE: wg0
+              DNS_ADDRESS: 10.43.0.10
+              FIREWALL_VPN_INPUT_PORTS: *soulseekPort
+              FIREWALL_INPUT_PORTS: *port
+              FIREWALL_OUTBOUND_SUBNETS: "10.0.0.0/8"
+              SERVER_COUNTRIES: "United States"
+            envFrom:
+              - secretRef:
+                  name: slskd-secret
+            resources:
+              limits:
+                squat.ai/tun: "1"
+            securityContext:
+              capabilities:
+                add:
+                  - NET_ADMIN
+              allowPrivilegeEscalation: false
+        pod:
+          securityContext:
+            fsGroup: 100
+            fsGroupChangePolicy: "OnRootMismatch"
+    service:
+      app:
+        controller: *app
+        ports:
+          http:
+            port: *port
+
+    route:
+      app:
+        hostnames:
+          - "slskd.armando.sh"
+        parentRefs:
+          - name: envoy-internal
+            namespace: network
+    configMaps:
+      config:
+        data:
+          slskd.yml: |-
+            directories:
+              downloads: /media/downloads/soulseek/complete
+              incomplete: /media/downloads/soulseek/incomplete
+            transfers:
+              download:
+                destination:
+                  permissions:
+                    mode: 750
+                retry:
+                  partial: resume
+                  attempts: 3
+                  delay: 5000
+                  max_delay: 60000
+            shares:
+              directories:
+                - /media/downloads/soulseek/shared
+              filters:
+                - \.ini$
+                - Thumbs.db$
+                - \.DS_Store$
+    persistence:
+      config:
+        existingClaim: *app
+      config-file:
+        type: configMap
+        identifier: config
+        globalMounts:
+          - path: /config/slskd.yml
+            subPath: slskd.yml
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "192.168.20.5"
+            path: "/mnt/user/media"
+        globalMounts:
+          - path: "/media"
+      tmp:
+        type: emptyDir

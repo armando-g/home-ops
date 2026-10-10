@@ -15,6 +15,7 @@ resources:
   - ./profilarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml
+  - ./slskd/ks.yaml
   - ./qui/ks.yaml
   - ./radarr/ks.yaml
   - ./seerr/ks.yaml
