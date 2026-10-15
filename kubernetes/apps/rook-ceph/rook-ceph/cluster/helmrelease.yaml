@@ -33,6 +33,10 @@ spec:
           kernelMountOptions: ms_mode=prefer-crc
         readAffinity:
           enabled: false
+      network:
+        provider: host
+        connections:
+          requireMsgr2: true
       dashboard:
         enabled: true
         urlPrefix: /
