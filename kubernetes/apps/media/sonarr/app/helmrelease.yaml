@@ -1,0 +1,78 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app sonarr
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: sonarr
+  interval: 1h
+  values:
+    controllers:
+      sonarr:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        type: deployment
+        containers:
+          app:
+            image:
+              repository: ghcr.io/home-operations/sonarr
+              tag: 5.0.0.2668@sha256:64fc190929b50091a8d6c3d6b5f4a3df7d3b8f98d076735f5cb223f7d77b0cc3
+              pullPolicy: IfNotPresent
+            env:
+              SONARR__APP__INSTANCENAME: Sonarr
+              SONARR__APP__THEME: dark
+              SONARR__AUTH__METHOD: External
+              SONARR__AUTH__REQUIRED: Enabled
+              SONARR__LOG__DBENABLED: "False"
+              SONARR__LOG__LEVEL: info
+              SONARR__SERVER__PORT: &port 80
+              SONARR__UPDATE__BRANCH: develop
+            envFrom:
+              - secretRef:
+                  name: "{{ .Release.Name }}-secret"
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                memory: 4Gi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 100
+        fsGroup: 100
+        fsGroupChangePolicy: OnRootMismatch
+    service:
+      app:
+        controller: sonarr
+        ports:
+          http:
+            port: *port
+    route:
+      app:
+        hostnames:
+          - "{{ .Release.Name }}.armando.sh"
+        parentRefs:
+          - name: envoy-internal
+            namespace: network
+    persistence:
+      config:
+        existingClaim: *app
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "192.168.20.5"
+            path: "/mnt/user/media"
+        globalMounts:
+          - path: "/media"
+      tmp:
+        type: emptyDir
