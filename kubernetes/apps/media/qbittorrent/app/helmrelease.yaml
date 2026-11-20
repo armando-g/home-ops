@@ -109,6 +109,9 @@ spec:
         parentRefs:
           - name: envoy-internal
             namespace: network
+        rules:
+          - backendRefs:
+              - identifier: app
     persistence:
       config:
         existingClaim: *app
