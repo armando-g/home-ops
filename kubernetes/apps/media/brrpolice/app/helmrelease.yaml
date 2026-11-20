@@ -20,7 +20,7 @@ spec:
             env:
               BRRPOLICE_HTTP__PORT: &port 80
               BRRPOLICE_LOGGING__LEVEL: info
-              BRRPOLICE_QBITTORRENT__BASE_URL: http://qbittorrent.media.svc.cluster.local
+              BRRPOLICE_QBITTORRENT__BASE_URL: http://qbittorrent-app
             probes:
               liveness:
                 enabled: true
@@ -42,7 +42,7 @@ spec:
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities: {drop: ["ALL"]}
+              capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 10m
