@@ -89,15 +89,17 @@ spec:
             fsGroupChangePolicy: "OnRootMismatch"
     service:
       app:
-        type: LoadBalancer
-        annotations:
-          lbipam.cilium.io/ips: 192.168.60.66
-          externalTrafficPolicy: Local
         controller: *app
         ports:
           http:
             port: *port
-          bittorrent:
+      bittorrent:
+        type: LoadBalancer
+        annotations:
+          lbipam.cilium.io/ips: 192.168.60.66
+        externalTrafficPolicy: Local
+        ports:
+          bittorrent-tcp:
             port: *bittorrentPort
 
     route:
