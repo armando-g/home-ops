@@ -1,0 +1,24 @@
+---
+customization:
+  extraKernelArgs:
+    - apparmor=0
+    - init_on_alloc
+    - init_on_alloc=0
+    - -init_on_free
+    - init_on_free=0
+    - mitigations=off
+    - module_blacklist=e1000e
+    - security=none
+    - talos.auditd.disabled=1
+  systemExtensions:
+    officialExtensions:
+      - siderolabs/i915
+      - siderolabs/intel-ice-firmware
+      - siderolabs/intel-ucode
+      - siderolabs/iscsi-tools
+      - siderolabs/mei
+      - siderolabs/nfs-utils
+      - siderolabs/nfsd
+      - siderolabs/nfsrahead
+      - siderolabs/nut-client
+      - siderolabs/util-linux-tools

@@ -1,0 +1,12 @@
+---
+machine:
+  type: worker
+  # ca merges as a unit; crt must be repeated alongside key
+  ca:
+    crt: {{ ENV.MACHINE_CA_CRT }}
+    key: ""
+cluster:
+  # ca merges as a unit; crt must be repeated alongside key
+  ca:
+    crt: {{ ENV.CLUSTER_CA_CRT }}
+    key: ""

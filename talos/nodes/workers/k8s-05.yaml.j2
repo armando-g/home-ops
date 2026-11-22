@@ -1,0 +1,27 @@
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+hostname: k8s-05
+---
+apiVersion: v1alpha1
+kind: KubeNodeConfig
+labels:
+  topology.kubernetes.io/zone: m
+---
+apiVersion: v1alpha1
+kind: UnattendedInstallConfig
+provisioning:
+  diskSelector:
+    match: disk.symlinks.exists(s, s.startsWith("/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0"))
+  wipe: false
+---
+apiVersion: v1alpha1
+kind: DHCPv4Config
+name: ens18
+clientIdentifier: mac
+---
+apiVersion: v1alpha1
+kind: LinkConfig
+name: ens18
+mtu: 9000
+up: true
