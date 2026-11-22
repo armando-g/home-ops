@@ -1,14 +1,12 @@
 {
-    "recommendations": [
-        "britesnow.vscode-toggle-quotes",
-        "fcrespo82.markdown-table-formatter",
-        "mikestead.dotenv",
-        "mitchdenny.ecdc",
-        "signageos.signageos-vscode-sops",
-        "will-stone.in-any-case",
-        "EditorConfig.editorconfig",
-        "PKief.material-icon-theme",
-        "Gruntfuggly.todo-tree",
-        "bluebrown.yamlfmt"
-    ]
+  "recommendations": [
+    "hverlin.mise-vscode",
+    "blueglassblock.better-json5",
+    "irongeek.vscode-env",
+    "pkief.material-icon-theme",
+    "noctalia.noctaliatheme",
+    "oxc.oxc-vscode",
+    "nefrob.vscode-just-syntax",
+    "redhat.vscode-yaml"
+  ]
 }
