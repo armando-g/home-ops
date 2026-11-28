@@ -97,9 +97,9 @@ url = "https://github.com/bitwarden/sdk-sm/releases/download/bws-v2.1.0/bws-x86_
 url_api = "https://api.github.com/repos/bitwarden/sdk-sm/releases/assets/426507247"
 
 [[tools."cargo:just-lsp"]]
-version = "0.11.2"
+version = "0.12.0"
 backend = "cargo:just-lsp"
-specifiers = ["0.11.2"]
+specifiers = ["0.12.0"]
 
 [[tools.flux2]]
 version = "2.10.1"
